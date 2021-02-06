@@ -3,7 +3,7 @@
   <entry>
     <title>使用hexo搭建个人博客</title>
     <url>/archives/ba7bb759.html</url>
-    <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后居然hexo d出问题，艹)</p>
+    <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)</p>
 <a id="more"></a>
 
 <h1 id="二、主题配置"><a href="#二、主题配置" class="headerlink" title="二、主题配置"></a>二、主题配置</h1><h2 id="1-fork-me-on-github"><a href="#1-fork-me-on-github" class="headerlink" title="1. fork me on github"></a>1. fork me on github</h2><p>在**主题目录(themes/next/layout)**下修改_layout.swig文件，可从<a href="https://tholman.com/github-corners/">GitHub Corners</a>中选一种样式</p>
