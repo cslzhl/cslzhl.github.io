@@ -6,16 +6,22 @@
     <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)</p>
 <a id="more"></a>
 
-<h1 id="二、主题配置"><a href="#二、主题配置" class="headerlink" title="二、主题配置"></a>二、主题配置</h1><h2 id="1-fork-me-on-github"><a href="#1-fork-me-on-github" class="headerlink" title="1. fork me on github"></a>1. fork me on github</h2><p>当前版本next集成了这个功能。在<strong>主题配置</strong>中修改即可</p>
+<h1 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h1><h2 id="fork-me-on-github"><a href="#fork-me-on-github" class="headerlink" title="fork me on github"></a>fork me on github</h2><p>当前版本next集成了这个功能。在<strong>主题配置</strong>中修改即可</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># &#96;Follow me on GitHub&#96; banner in the top-right corner.</span><br><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https:&#x2F;&#x2F;github.com&#x2F;cslzhl</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
 <hr>
 <p>之前版本在<strong>主题目录</strong>(themes/next/layout)下修改_layout.swig文件，可从<a href="https://tholman.com/github-corners/">GitHub Corners</a>中选一种样式</p>
 <figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;&#123;&#123; container_class &#125;&#125; &#123;% block page_class %&#125;&#123;% endblock %&#125; &quot;&gt;</span><br><span class="line">&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</span><br><span class="line"><span class="addition">+ &lt;a href=&quot;https://github.com/cslzhl&quot; class=&quot;github-corner&quot; aria-label=&quot;View source on GitHub&quot;&gt;&lt;svg width=&quot;80&quot; height=&quot;80&quot; viewBox=&quot;0 0 250 250&quot; style=&quot;fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&quot; fill=&quot;currentColor&quot; style=&quot;transform-origin: 130px 106px;&quot; class=&quot;octo-arm&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&quot; fill=&quot;currentColor&quot; class=&quot;octo-body&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;style&gt;.github-corner:hover .octo-arm&#123;animation:octocat-wave 560ms ease-in-out&#125;@keyframes octocat-wave&#123;0%,100%&#123;transform:rotate(0)&#125;20%,60%&#123;transform:rotate(-25deg)&#125;40%,80%&#123;transform:rotate(10deg)&#125;&#125;@media (max-width:500px)&#123;.github-corner:hover .octo-arm&#123;animation:none&#125;.github-corner .octo-arm&#123;animation:octocat-wave 560ms ease-in-out&#125;&#125;&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-阅读全文跳转"><a href="#2-阅读全文跳转" class="headerlink" title="2. 阅读全文跳转"></a>2. 阅读全文跳转</h2><p>修改主题文件(themes/next/layout/_macro/post.swig)</p>
+<h2 id="阅读全文跳转"><a href="#阅读全文跳转" class="headerlink" title="阅读全文跳转"></a>阅读全文跳转</h2><p>修改主题文件(themes/next/layout/_macro/post.swig)</p>
 <figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">- &lt;a class=&quot;btn&quot; href=&quot;&#123;&#123; url_for(post.path) &#125;&#125;#more&quot; rel=&quot;contents&quot;&gt;</span></span><br><span class="line"><span class="addition">+ &lt;a class=&quot;btn&quot; href=&quot;&#123;&#123; url_for(post.path) &#125;&#125;&quot; rel=&quot;contents&quot;&gt;</span></span><br></pre></td></tr></table></figure>
 <hr>
 <p>以下方法以失效</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scroll_to_more: false</span><br></pre></td></tr></table></figure>
+<h2 id="推荐文章插件"><a href="#推荐文章插件" class="headerlink" title="推荐文章插件"></a>推荐文章插件</h2><p>这个帮助我们根据标签推荐相关文章，当前版本NexT主题集成了这个插件的配置。</p>
+<h3 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h3><p><a href="https://github.com/tea3/hexo-related-popular-posts">hexo-related-popular-posts</a></p>
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><p>安装插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
+<p>修改主题配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">related_posts:</span><br><span class="line">  enable: true</span><br><span class="line">  title: 推荐文章 # Custom header, leave empty to use the default one</span><br><span class="line">  display_in_home: false</span><br><span class="line">  params:</span><br><span class="line">    maxCount: 5</span><br><span class="line">    PPMixingRate: 0.25</span><br><span class="line">    isDate: false</span><br><span class="line">    isImage: false</span><br><span class="line">    isExcerpt: false</span><br></pre></td></tr></table></figure>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="https://tding.top/archives/567debe0.html">本博客当前使用的插件总结</a></li>
 </ol>
@@ -26,6 +32,43 @@
       <tags>
         <tag>hexo</tag>
         <tag>github page</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python执行cmd命令</title>
+    <url>/archives/1012268b.html</url>
+    <content><![CDATA[<p>我们通常可以使用os模块的命令进行执行cmd</p>
+<h2 id="方法1：os-system"><a href="#方法1：os-system" class="headerlink" title="方法1：os.system"></a>方法1：os.system</h2><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># os.system(执行的指令)</span></span><br><span class="line">code = os.system(<span class="string">&#x27;ls&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="方法2-os-popen"><a href="#方法2-os-popen" class="headerlink" title="方法2: os.popen"></a>方法2: os.popen</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># os.popen(执行的指令)</span></span><br><span class="line">code = os.popen(<span class="string">&#x27;ls&#x27;</span>)</span><br><span class="line">code.read() <span class="keyword">or</span> code.readlines()</span><br></pre></td></tr></table></figure>
+<h2 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h2><ul>
+<li>system返回指令执行的结果，0表示执行成功，反之则为错误代码，这是系统依赖(system-dependent)的。system无法获取指令输出的信息。</li>
+<li>popen可以获取输出的信息内容，它是一个文件对象，可以通过 .read() 去读取</li>
+</ul>
+]]></content>
+      <categories>
+        <category>python编程</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python并行处理</title>
+    <url>/archives/a448f9a6.html</url>
+    <content><![CDATA[<h1 id="基于进程的并行"><a href="#基于进程的并行" class="headerlink" title="基于进程的并行"></a>基于进程的并行</h1><h2 id="方法1-multiprocessing"><a href="#方法1-multiprocessing" class="headerlink" title="方法1: multiprocessing"></a>方法1: multiprocessing</h2><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="comment"># map与imap,对于很长的迭代对象，可能消耗很多内存。可以考虑使用 imap()</span></span><br><span class="line"><span class="comment"># map(func, iterable[, chunksize])</span></span><br></pre></td></tr></table></figure>
+<h2 id="方法2-Parallel"><a href="#方法2-Parallel" class="headerlink" title="方法2: Parallel"></a>方法2: Parallel</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/zh-cn/3.8/library/multiprocessing.html">multiprocessing — 基于进程的并行</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>python编程</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>并行处理</tag>
       </tags>
   </entry>
 </search>
