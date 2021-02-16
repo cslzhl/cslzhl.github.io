@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python并行处理</title>
+    <url>/archives/a448f9a6.html</url>
+    <content><![CDATA[<h1 id="基于进程的并行"><a href="#基于进程的并行" class="headerlink" title="基于进程的并行"></a>基于进程的并行</h1><h2 id="方法1-multiprocessing"><a href="#方法1-multiprocessing" class="headerlink" title="方法1: multiprocessing"></a>方法1: multiprocessing</h2><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> multiprocessing <span class="keyword">as</span> mp</span><br><span class="line"><span class="comment"># map与imap,对于很长的迭代对象，可能消耗很多内存。可以考虑使用 imap()</span></span><br><span class="line"><span class="comment"># map(func, iterable[, chunksize])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">twotimes</span>(<span class="params">i</span>):</span></span><br><span class="line">    <span class="keyword">return</span> i * <span class="number">2</span></span><br><span class="line">pool = mp.Pool(processes = mp.cpu_count())</span><br><span class="line">results = pool.<span class="built_in">map</span>(twotimes, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">print(results)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="方法2-Parallel"><a href="#方法2-Parallel" class="headerlink" title="方法2: Parallel"></a>方法2: Parallel</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> joblib <span class="keyword">import</span> Parallel, delayed, cpu_count</span><br><span class="line">batches = Parallel(n_jobs=cpu_count() - <span class="number">1</span>)(</span><br><span class="line">    delayed(extract)(i, br, bug_reports, java_src_dict)</span><br><span class="line">    <span class="keyword">for</span> i, br <span class="keyword">in</span> <span class="built_in">enumerate</span>(bug_reports)</span><br><span class="line">)</span><br><span class="line">features = [row <span class="keyword">for</span> batch <span class="keyword">in</span> batches <span class="keyword">for</span> row <span class="keyword">in</span> batch]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="方法3-pathos-pools"><a href="#方法3-pathos-pools" class="headerlink" title="方法3: pathos.pools"></a>方法3: pathos.pools</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pathos.pools <span class="keyword">as</span> pp</span><br></pre></td></tr></table></figure>
+<h2 id="方法4-numba"><a href="#方法4-numba" class="headerlink" title="方法4: numba"></a>方法4: numba</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/zh-cn/3.8/library/multiprocessing.html">multiprocessing — 基于进程的并行</a></li>
+<li><a href="https://blog.csdn.net/weixin_42001089/article/details/88843152?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3.control">python 并行化：加快数据的处理</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/46378282">python并行计算（上）：pathos模块</a></li>
+<li><a href="https://www.jianshu.com/p/69d9d7e37bc5">加速python运行-numba</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>并行处理</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python执行cmd命令</title>
+    <url>/archives/1012268b.html</url>
+    <content><![CDATA[<p>我们通常可以使用os模块的命令进行执行cmd</p>
+<h2 id="方法1：os-system"><a href="#方法1：os-system" class="headerlink" title="方法1：os.system"></a>方法1：os.system</h2><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># os.system(执行的指令)</span></span><br><span class="line">code = os.system(<span class="string">&#x27;ls&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="方法2-os-popen"><a href="#方法2-os-popen" class="headerlink" title="方法2: os.popen"></a>方法2: os.popen</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># os.popen(执行的指令)</span></span><br><span class="line">code = os.popen(<span class="string">&#x27;ls&#x27;</span>)</span><br><span class="line">code.read() <span class="keyword">or</span> code.readlines()</span><br></pre></td></tr></table></figure>
+<h2 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h2><ul>
+<li>system返回指令执行的结果，0表示执行成功，反之则为错误代码，这是系统依赖(system-dependent)的。system无法获取指令输出的信息。</li>
+<li>popen可以获取输出的信息内容，它是一个文件对象，可以通过 .read() 去读取</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>cmd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python添加进度条</title>
+    <url>/archives/83a60a30.html</url>
+    <content><![CDATA[<h2 id="方法1-tqdm"><a href="#方法1-tqdm" class="headerlink" title="方法1: tqdm"></a>方法1: tqdm</h2><ol>
+<li>通过tqdm实现</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># tqdm(list)方法可以传入任意一种list,比如数组</span></span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(<span class="number">1000</span>)):</span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ol start="2">
+<li>通过trange实现<br>trange(i) 是 tqdm(range(i)) 的简单写法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> trange</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> trange(<span class="number">100</span>):</span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，tqdm是任务开始时刷新进度条</p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://blog.csdn.net/zkp_987/article/details/81748098">tqdm介绍及常用方法</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>进度条</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu查看文件编码类型</title>
+    <url>/archives/e51b08cc.html</url>
+    <content><![CDATA[<h2 id="方法1-file-i-filename"><a href="#方法1-file-i-filename" class="headerlink" title="方法1: file -i filename"></a>方法1: file -i filename</h2><a id="more"></a>]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vim个人配置记录</title>
+    <url>/archives/fff3ae8c.html</url>
+    <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="spacevim安装"><a href="#spacevim安装" class="headerlink" title="spacevim安装"></a>spacevim安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -sLf https:&#x2F;&#x2F;spacevim.org&#x2F;cn&#x2F;install.sh | bash</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="配置修改"><a href="#配置修改" class="headerlink" title="配置修改"></a>配置修改</h2><p>修改文件.SpaceVim.dinit.toml</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">[[layers]]</span><br><span class="line">  name = &quot;lang#markdown&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://spacevim.org/cn/">SpaceVim</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用hexo搭建个人博客</title>
     <url>/archives/ba7bb759.html</url>
     <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)</p>
@@ -22,6 +120,16 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
 <p>修改主题配置</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">related_posts:</span><br><span class="line">  enable: true</span><br><span class="line">  title: 推荐文章 # Custom header, leave empty to use the default one</span><br><span class="line">  display_in_home: false</span><br><span class="line">  params:</span><br><span class="line">    maxCount: 5</span><br><span class="line">    PPMixingRate: 0.25</span><br><span class="line">    isDate: false</span><br><span class="line">    isImage: false</span><br><span class="line">    isExcerpt: false</span><br></pre></td></tr></table></figure>
+<h2 id="Hexo修改back2top标签"><a href="#Hexo修改back2top标签" class="headerlink" title="Hexo修改back2top标签"></a>Hexo修改back2top标签</h2><h3 id="地址-1"><a href="#地址-1" class="headerlink" title="地址"></a>地址</h3><p><a href="https://github.com/jiangtj-lab/hexo-cake-moon-menu">hexo-cake-moon-menu</a></p>
+<h3 id="安装配置-1"><a href="#安装配置-1" class="headerlink" title="安装配置"></a>安装配置</h3><p>安装插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cake-moon-menu --save</span><br></pre></td></tr></table></figure>
+<p>修改站点配置<br>在站点配置文件_config.yml 中添加以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">moon_menu:</span><br><span class="line">  back2top:</span><br><span class="line">    enable: true</span><br><span class="line">    icon: fa fa-chevron-up</span><br><span class="line">    func: back2top</span><br><span class="line">    order: -1</span><br><span class="line">  back2bottom:</span><br><span class="line">    enable: true</span><br><span class="line">    icon: fa fa-chevron-down</span><br><span class="line">    func: back2bottom</span><br><span class="line">    order: -2</span><br></pre></td></tr></table></figure>
+<hr>
+<p>在next主题配置中，以下为back2top条：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: true # 在左边文章目录下</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true # 显示百分比</span><br></pre></td></tr></table></figure>
+<h2 id="侧边栏标签等数字显示"><a href="#侧边栏标签等数字显示" class="headerlink" title="侧边栏标签等数字显示"></a>侧边栏标签等数字显示</h2><p>修改next主题配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu_settings:</span><br><span class="line">  icons: true</span><br><span class="line">  badges: true</span><br></pre></td></tr></table></figure>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="https://tding.top/archives/567debe0.html">本博客当前使用的插件总结</a></li>
 </ol>
@@ -32,43 +140,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>github page</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python执行cmd命令</title>
-    <url>/archives/1012268b.html</url>
-    <content><![CDATA[<p>我们通常可以使用os模块的命令进行执行cmd</p>
-<h2 id="方法1：os-system"><a href="#方法1：os-system" class="headerlink" title="方法1：os.system"></a>方法1：os.system</h2><a id="more"></a>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># os.system(执行的指令)</span></span><br><span class="line">code = os.system(<span class="string">&#x27;ls&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="方法2-os-popen"><a href="#方法2-os-popen" class="headerlink" title="方法2: os.popen"></a>方法2: os.popen</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># os.popen(执行的指令)</span></span><br><span class="line">code = os.popen(<span class="string">&#x27;ls&#x27;</span>)</span><br><span class="line">code.read() <span class="keyword">or</span> code.readlines()</span><br></pre></td></tr></table></figure>
-<h2 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h2><ul>
-<li>system返回指令执行的结果，0表示执行成功，反之则为错误代码，这是系统依赖(system-dependent)的。system无法获取指令输出的信息。</li>
-<li>popen可以获取输出的信息内容，它是一个文件对象，可以通过 .read() 去读取</li>
-</ul>
-]]></content>
-      <categories>
-        <category>python编程</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python并行处理</title>
-    <url>/archives/a448f9a6.html</url>
-    <content><![CDATA[<h1 id="基于进程的并行"><a href="#基于进程的并行" class="headerlink" title="基于进程的并行"></a>基于进程的并行</h1><h2 id="方法1-multiprocessing"><a href="#方法1-multiprocessing" class="headerlink" title="方法1: multiprocessing"></a>方法1: multiprocessing</h2><a id="more"></a>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="comment"># map与imap,对于很长的迭代对象，可能消耗很多内存。可以考虑使用 imap()</span></span><br><span class="line"><span class="comment"># map(func, iterable[, chunksize])</span></span><br></pre></td></tr></table></figure>
-<h2 id="方法2-Parallel"><a href="#方法2-Parallel" class="headerlink" title="方法2: Parallel"></a>方法2: Parallel</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/zh-cn/3.8/library/multiprocessing.html">multiprocessing — 基于进程的并行</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>python编程</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>并行处理</tag>
       </tags>
   </entry>
 </search>
