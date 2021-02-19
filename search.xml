@@ -183,4 +183,75 @@
         <tag>github page</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ubuntu系统深度学习环境搭建</title>
+    <url>/archives/923d283b.html</url>
+    <content><![CDATA[<p>首先，查看ubuntu版本可以用下面的指令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &#x2F;proc&#x2F;version</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="ubuntu18-04安装tensorflow"><a href="#ubuntu18-04安装tensorflow" class="headerlink" title="ubuntu18.04安装tensorflow"></a>ubuntu18.04安装tensorflow</h1><p>安装tensorflow，参考<a href="https://www.tensorflow.org/install/gpu">https://www.tensorflow.org/install/gpu</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Add NVIDIA package repositories</span><br><span class="line">wget https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;cuda&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F;cuda-ubuntu1804.pin</span><br><span class="line">sudo mv cuda-ubuntu1804.pin &#x2F;etc&#x2F;apt&#x2F;preferences.d&#x2F;cuda-repository-pin-600</span><br><span class="line">sudo apt-key adv --fetch-keys https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;cuda&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F;7fa2af80.pub</span><br><span class="line">sudo add-apt-repository &quot;deb https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;cuda&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F; &#x2F;&quot;</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">wget http:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;machine-learning&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F;nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</span><br><span class="line"></span><br><span class="line">sudo apt install .&#x2F;nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># Install NVIDIA driver</span><br><span class="line">sudo apt-get install --no-install-recommends nvidia-driver-450</span><br><span class="line"># Reboot. Check that GPUs are visible using the command: nvidia-smi</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;machine-learning&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F;libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</span><br><span class="line">sudo apt install .&#x2F;libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># Install development and runtime libraries (~4GB)</span><br><span class="line">sudo apt-get install --no-install-recommends \</span><br><span class="line">    cuda-11-0 \</span><br><span class="line">    libcudnn8&#x3D;8.0.4.30-1+cuda11.0  \</span><br><span class="line">    libcudnn8-dev&#x3D;8.0.4.30-1+cuda11.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Install TensorRT. Requires that libcudnn8 is installed above.</span><br><span class="line">sudo apt-get install -y --no-install-recommends libnvinfer7&#x3D;7.1.3-1+cuda11.0 \</span><br><span class="line">    libnvinfer-dev&#x3D;7.1.3-1+cuda11.0 \</span><br><span class="line">    libnvinfer-plugin7&#x3D;7.1.3-1+cuda11.0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="匹配关系"><a href="#匹配关系" class="headerlink" title="匹配关系"></a>匹配关系</h2><p>tensorflow匹配关系见网址：<a href="https://www.tensorflow.org/install/source_windows">https://www.tensorflow.org/install/source_windows</a></p>
+<h2 id="tensroflow-GPU测试代码"><a href="#tensroflow-GPU测试代码" class="headerlink" title="tensroflow GPU测试代码"></a>tensroflow GPU测试代码</h2><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line"><span class="deletion">- print(tf.test.is_gpu_available()) # 之前的版本，待废弃</span></span><br><span class="line"><span class="addition">+ tf.config.list_physical_devices(&#x27;GPU&#x27;)</span></span><br></pre></td></tr></table></figure>
+<h1 id="ubuntu18-04安装pytorch"><a href="#ubuntu18-04安装pytorch" class="headerlink" title="ubuntu18.04安装pytorch"></a>ubuntu18.04安装pytorch</h1><p>在安装好nvidia驱动的基础上，可以直接安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision -c pytorch</span><br></pre></td></tr></table></figure>
+<h2 id="匹配关系-1"><a href="#匹配关系-1" class="headerlink" title="匹配关系"></a>匹配关系</h2><p>这里是pytorch和cudatoolkit版本对应关系：<a href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a></p>
+<table>
+<thead>
+<tr>
+<th>CUDA版本</th>
+<th>可用PyTorch版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7.5</td>
+<td>0.4.1 ，0.3.0， 0.2.0，0.1.12-0.1.6</td>
+</tr>
+<tr>
+<td>8.0</td>
+<td>1.1.0，1.0.0 ，0.4.1</td>
+</tr>
+<tr>
+<td>9.0</td>
+<td>1.1.0，1.0.1, 1.0.0，0.4.1</td>
+</tr>
+<tr>
+<td>9.2</td>
+<td>1.6.0，1.5.0，1.4.0，1.2.0，0.4.1</td>
+</tr>
+<tr>
+<td>10.0</td>
+<td>1.2.0，1.1.0，1.0.1 ,1.0.0</td>
+</tr>
+<tr>
+<td>10.1</td>
+<td>1.6.0，1.5.0， 1.4.0，1.3.0</td>
+</tr>
+<tr>
+<td>10.2</td>
+<td>1.6.0，1.5.0</td>
+</tr>
+<tr>
+<td>11.0</td>
+<td>1.7.0</td>
+</tr>
+</tbody></table>
+<h2 id="pytorch-GPU测试代码"><a href="#pytorch-GPU测试代码" class="headerlink" title="pytorch GPU测试代码"></a>pytorch GPU测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import torch</span><br><span class="line">print(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Nvidia驱动、cuda和cuDNN安装"><a href="#Nvidia驱动、cuda和cuDNN安装" class="headerlink" title="Nvidia驱动、cuda和cuDNN安装"></a>Nvidia驱动、cuda和cuDNN安装</h1><h2 id="NVIDIA-驱动安装"><a href="#NVIDIA-驱动安装" class="headerlink" title="NVIDIA 驱动安装"></a>NVIDIA 驱动安装</h2><h2 id="CUDA安装"><a href="#CUDA安装" class="headerlink" title="CUDA安装"></a>CUDA安装</h2><p>首先贴一张CUDA和驱动版本的对应表，具体可见<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#abstract">https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#abstract</a>。<br><img src="http://ww1.sinaimg.cn/large/006ltHaXgy1gns49hgbu1j315m0rqaf4.jpg" alt="QQ20210218-233600@2x.png"></p>
+<p>去官网上 下载和驱动对应的cuda文件<a href="https://developer.nvidia.com/cuda-toolkit-archive">https://developer.nvidia.com/cuda-toolkit-archive</a>，需要注册一个账号。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.cnblogs.com/carle-09/p/11252814.html">Ubuntu系统—安NVIDIA 驱动后  CUDA+cuDNN 安装</a></li>
+<li><a href="https://www.cnblogs.com/Wanggcong/p/12625540.html">pytorch版本，cuda版本，系统cuda版本查询和对应关系</a></li>
+<li><a href="https://www.cnblogs.com/sunshe35/articles/12808780.html">彻底搞定tensorflow-GPU环境(史上最全)</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>cuda</tag>
+        <tag>cuDNN</tag>
+      </tags>
+  </entry>
 </search>
