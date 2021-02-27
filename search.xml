@@ -123,68 +123,6 @@
       </tags>
   </entry>
   <entry>
-    <title>vim个人配置记录</title>
-    <url>/archives/fff3ae8c.html</url>
-    <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="spacevim安装"><a href="#spacevim安装" class="headerlink" title="spacevim安装"></a>spacevim安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -sLf https:&#x2F;&#x2F;spacevim.org&#x2F;cn&#x2F;install.sh | bash</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="配置修改"><a href="#配置修改" class="headerlink" title="配置修改"></a>配置修改</h2><p>修改文件.SpaceVim.dinit.toml</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">[[layers]]</span><br><span class="line">  name = &quot;lang#markdown&quot;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://spacevim.org/cn/">SpaceVim</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件使用</category>
-      </categories>
-      <tags>
-        <tag>vim</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用hexo搭建个人博客</title>
-    <url>/archives/ba7bb759.html</url>
-    <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)</p>
-<a id="more"></a>
-
-<h1 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h1><h2 id="fork-me-on-github"><a href="#fork-me-on-github" class="headerlink" title="fork me on github"></a>fork me on github</h2><p>当前版本next集成了这个功能。在<strong>主题配置</strong>中修改即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># &#96;Follow me on GitHub&#96; banner in the top-right corner.</span><br><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https:&#x2F;&#x2F;github.com&#x2F;cslzhl</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
-<hr>
-<p>之前版本在<strong>主题目录</strong>(themes/next/layout)下修改_layout.swig文件，可从<a href="https://tholman.com/github-corners/">GitHub Corners</a>中选一种样式</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;&#123;&#123; container_class &#125;&#125; &#123;% block page_class %&#125;&#123;% endblock %&#125; &quot;&gt;</span><br><span class="line">&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</span><br><span class="line"><span class="addition">+ &lt;a href=&quot;https://github.com/cslzhl&quot; class=&quot;github-corner&quot; aria-label=&quot;View source on GitHub&quot;&gt;&lt;svg width=&quot;80&quot; height=&quot;80&quot; viewBox=&quot;0 0 250 250&quot; style=&quot;fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&quot; fill=&quot;currentColor&quot; style=&quot;transform-origin: 130px 106px;&quot; class=&quot;octo-arm&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&quot; fill=&quot;currentColor&quot; class=&quot;octo-body&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;style&gt;.github-corner:hover .octo-arm&#123;animation:octocat-wave 560ms ease-in-out&#125;@keyframes octocat-wave&#123;0%,100%&#123;transform:rotate(0)&#125;20%,60%&#123;transform:rotate(-25deg)&#125;40%,80%&#123;transform:rotate(10deg)&#125;&#125;@media (max-width:500px)&#123;.github-corner:hover .octo-arm&#123;animation:none&#125;.github-corner .octo-arm&#123;animation:octocat-wave 560ms ease-in-out&#125;&#125;&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="阅读全文跳转"><a href="#阅读全文跳转" class="headerlink" title="阅读全文跳转"></a>阅读全文跳转</h2><p>修改主题文件(themes/next/layout/_macro/post.swig)</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">- &lt;a class=&quot;btn&quot; href=&quot;&#123;&#123; url_for(post.path) &#125;&#125;#more&quot; rel=&quot;contents&quot;&gt;</span></span><br><span class="line"><span class="addition">+ &lt;a class=&quot;btn&quot; href=&quot;&#123;&#123; url_for(post.path) &#125;&#125;&quot; rel=&quot;contents&quot;&gt;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>以下方法以失效</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scroll_to_more: false</span><br></pre></td></tr></table></figure>
-<h2 id="推荐文章插件"><a href="#推荐文章插件" class="headerlink" title="推荐文章插件"></a>推荐文章插件</h2><p>这个帮助我们根据标签推荐相关文章，当前版本NexT主题集成了这个插件的配置。</p>
-<h3 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h3><p><a href="https://github.com/tea3/hexo-related-popular-posts">hexo-related-popular-posts</a></p>
-<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><p>安装插件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
-<p>修改主题配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">related_posts:</span><br><span class="line">  enable: true</span><br><span class="line">  title: 推荐文章 # Custom header, leave empty to use the default one</span><br><span class="line">  display_in_home: false</span><br><span class="line">  params:</span><br><span class="line">    maxCount: 5</span><br><span class="line">    PPMixingRate: 0.25</span><br><span class="line">    isDate: false</span><br><span class="line">    isImage: false</span><br><span class="line">    isExcerpt: false</span><br></pre></td></tr></table></figure>
-<h2 id="Hexo修改back2top标签"><a href="#Hexo修改back2top标签" class="headerlink" title="Hexo修改back2top标签"></a>Hexo修改back2top标签</h2><h3 id="地址-1"><a href="#地址-1" class="headerlink" title="地址"></a>地址</h3><p><a href="https://github.com/jiangtj-lab/hexo-cake-moon-menu">hexo-cake-moon-menu</a></p>
-<h3 id="安装配置-1"><a href="#安装配置-1" class="headerlink" title="安装配置"></a>安装配置</h3><p>安装插件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cake-moon-menu --save</span><br></pre></td></tr></table></figure>
-<p>修改站点配置<br>在站点配置文件_config.yml 中添加以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">moon_menu:</span><br><span class="line">  back2top:</span><br><span class="line">    enable: true</span><br><span class="line">    icon: fa fa-chevron-up</span><br><span class="line">    func: back2top</span><br><span class="line">    order: -1</span><br><span class="line">  back2bottom:</span><br><span class="line">    enable: true</span><br><span class="line">    icon: fa fa-chevron-down</span><br><span class="line">    func: back2bottom</span><br><span class="line">    order: -2</span><br></pre></td></tr></table></figure>
-<hr>
-<p>在next主题配置中，以下为back2top条：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: true # 在左边文章目录下</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true # 显示百分比</span><br></pre></td></tr></table></figure>
-<h2 id="侧边栏标签等数字显示"><a href="#侧边栏标签等数字显示" class="headerlink" title="侧边栏标签等数字显示"></a>侧边栏标签等数字显示</h2><p>修改next主题配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu_settings:</span><br><span class="line">  icons: true</span><br><span class="line">  badges: true</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://tding.top/archives/567debe0.html">本博客当前使用的插件总结</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>建站教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>github page</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ubuntu系统深度学习环境搭建</title>
     <url>/archives/923d283b.html</url>
     <content><![CDATA[<p>首先，查看ubuntu版本可以用下面的指令</p>
@@ -253,6 +191,177 @@
       <tags>
         <tag>cuda</tag>
         <tag>cuDNN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu终端配置代理</title>
+    <url>/archives/6a15ee01.html</url>
+    <content><![CDATA[<h1 id="终端代理配置"><a href="#终端代理配置" class="headerlink" title="终端代理配置"></a>终端代理配置</h1><h2 id="临时"><a href="#临时" class="headerlink" title="临时"></a>临时</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export https_proxy&#x3D;https:&#x2F;&#x2F;用户名:密码@代理地址:代理端口</span><br><span class="line">export http_proxy&#x3D;http:&#x2F;&#x2F;用户名:密码@代理地址:代理端口</span><br></pre></td></tr></table></figure>
+<h2 id="永久"><a href="#永久" class="headerlink" title="永久"></a>永久</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># gedit ~&#x2F;.bashrc 在.bashrc文件末尾添加如下内容，或者在&#x2F;etc&#x2F;environment中</span><br><span class="line">export http_proxy&#x3D;http:&#x2F;&#x2F;用户名:密码@地址:端口&#x2F;</span><br><span class="line">export https_proxy&#x3D;http:&#x2F;&#x2F;用户名:密码@地址:端口&#x2F;</span><br><span class="line">export ftp_proxy&#x3D;http:&#x2F;&#x2F;用户名:密码@地址:端口&#x2F;</span><br><span class="line"># sudo gedit &#x2F;etc&#x2F;apt&#x2F;apt.conf 在apt.conf文件中加入下面这行</span><br><span class="line">Acquire::http::proxy &quot;http:&#x2F;&#x2F;用户名:密码@地址:端口&quot;;</span><br><span class="line">Acquire::ftp::proxy &quot;http:&#x2F;&#x2F;用户名:密码@地址:端口&quot;;</span><br><span class="line">Acquire::https::proxy &quot;http:&#x2F;&#x2F;用户名:密码@地址:端口&quot;;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="配置V2ray-socks5"><a href="#配置V2ray-socks5" class="headerlink" title="配置V2ray socks5"></a>配置V2ray socks5</h1><h2 id="在ubuntu配置v2ray客户端"><a href="#在ubuntu配置v2ray客户端" class="headerlink" title="在ubuntu配置v2ray客户端"></a>在ubuntu配置v2ray客户端</h2><p>首先下载脚本:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;v2fly&#x2F;fhs-install-v2ray&#x2F;blob&#x2F;master&#x2F;install-dat-release.sh</span><br></pre></td></tr></table></figure>
+<p>然后执行脚本安装 V2Ray:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo bash install-dat-release.sh</span><br></pre></td></tr></table></figure>
+<p>复制配置文件config.json到/etc/,可以直接从windows或mac的v2rayN客户端夹中直接复制过来.</p>
+<p>启动v2ray服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart v2ray</span><br></pre></td></tr></table></figure>
+<p>socks5代理已经启动, 默认端口是1080, (socks5://127.0.0.1:1080).</p>
+<h2 id="配置http代理-privoxy"><a href="#配置http代理-privoxy" class="headerlink" title="配置http代理 privoxy"></a>配置http代理 privoxy</h2><p>有些命令行工具只能使用http代理, 不能使用socks5代理, 因此需要用privoxy把socks5代理转换为http代理.</p>
+<p>安装privoxy</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install -y privoxy</span><br></pre></td></tr></table></figure>
+<p>修改配置文件/etc/privoxy/config</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">listen-address  :10809</span><br><span class="line">forward-socks5    &#x2F;    127.0.0.1:10808  .</span><br></pre></td></tr></table></figure>
+<p>启动privoxy服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart privoxy</span><br></pre></td></tr></table></figure>
+<p>http代理已经启动, 默认端口是10809, (<a href="http://127.0.0.1:10809/">http://127.0.0.1:10809</a>).</p>
+<h2 id="配置proxychains"><a href="#配置proxychains" class="headerlink" title="配置proxychains"></a>配置proxychains</h2><p>有些linux命令行工具没有配置代理的方法, 可以用proxychains强制应用使用代理网络.</p>
+<p>安装proxychains</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install -y proxychains</span><br></pre></td></tr></table></figure>
+<p>修改配置文件/etc/proxychains.conf最后一行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">socks5  127.0.0.1 10808</span><br></pre></td></tr></table></figure>
+<p>使用proxychains方法, 在命令前加上proxychains, 如:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">proxychains apt update</span><br></pre></td></tr></table></figure>
+<h2 id="python-pip使用http代理加速"><a href="#python-pip使用http代理加速" class="headerlink" title="python pip使用http代理加速"></a>python pip使用http代理加速</h2><p>方法1:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3 install -r requirement.txt --proxy http:&#x2F;&#x2F;127.0.0.1:10809</span><br></pre></td></tr></table></figure>
+<p>方法2:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">proxychains pip3 install -r requirement.txt</span><br></pre></td></tr></table></figure>
+<p>git使用http代理加速</p>
+<p>方法1:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:10809</span><br><span class="line">git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:10809</span><br></pre></td></tr></table></figure>
+<p>取消设置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br></pre></td></tr></table></figure>
+<p>方法2:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">proxychains git clone https:&#x2F;&#x2F;github.com&#x2F;opencv&#x2F;opencv.git</span><br></pre></td></tr></table></figure>
+<p>docker使用http代理加速</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service.d</span><br><span class="line">&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service.d&#x2F;http-proxy.conf</span><br><span class="line">------</span><br><span class="line">[Service]</span><br><span class="line">Environment&#x3D;&quot;HTTP_PROXY&#x3D;http:&#x2F;&#x2F;127.0.0.1:10809&#x2F;&quot;</span><br><span class="line">------</span><br><span class="line"># systemctl daemon-reload</span><br><span class="line"># systemctl restart docker</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://blog.51cto.com/laok8/2609755">在Ubuntu Linux中命令行工具使用代理v2ray privoxy proxychains学习</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vim个人配置记录</title>
+    <url>/archives/fff3ae8c.html</url>
+    <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="spacevim安装"><a href="#spacevim安装" class="headerlink" title="spacevim安装"></a>spacevim安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -sLf https:&#x2F;&#x2F;spacevim.org&#x2F;cn&#x2F;install.sh | bash</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="配置修改"><a href="#配置修改" class="headerlink" title="配置修改"></a>配置修改</h2><p>修改文件.SpaceVim.dinit.toml</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">[[layers]]</span><br><span class="line">  name = &quot;lang#markdown&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://spacevim.org/cn/">SpaceVim</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>永续合约套利 - 转载</title>
+    <url>/archives/351b7a85.html</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="b4748a1a97e89329964ae3b9a8f3ede5fbe2b9b7c3147050b9f7d979b480a35f">c9633bf891dcd16dfc4a39c0845dabc3412a808e5bd9cf329164dc6296eef17504caecd8a7064441ffb6c138b87691bbf1fec5334ad76387d455334e9371c8957d5687aabd256ed62a42a7064d00b6ef70a9a1db04f09a45f457ea64b7491f09007cdccbbc0a807377fd7aea47228314f05ffeb9ae1bb3bd73b3fddc8e09eda845574777e768d8945f31e41f374345170bcf5741ef1429beb6332fa9a8e57d08e0023a508497547b1dec2ea547bde5ec33043c93bce562ca41c58ff6e7e494df0c0c5285c8cb49e7842c90ac0065569e561df0d393547eabb20fdb226c9fa3ec5777d769fe29e08d5fb01e2b0a11a8ad532ff653503c294d77b3e6343205d2228727f831f11a79250f88870ae31b0b5010ef9b163e4b76a3017c8ec93e511bd6de0bad6c612066a5887aa54037b9b7c33faba9b4966465cdba38d0bae76be55c74a79ff58a6c7a7aa4ae86bcc2704d3a9c7425f504dde9d621b8847239c377355f3012fe7363660fb9e6e7f942b48b467b1d622c7cf9df5ec74cc49c3f58bbdabc27dfe84f3d78c08ec25b00ed91b05622b8540113b3af9c2f52f7057023c1b8dd9137c475d7ac4f14f18599794655c6b1c5f388900c58c33e535248a43515ee788f7aafc6eaae48b1383f357f5a7a9270ca4ab759f1b1a31299d93b8e49b9a54e8b18bb0bdfc9cd7e75f4c17096a4b3eed755c49a2c1bd9dcfc4b08f4ad835a933ef07bf6a6d217a45661632aa554c21de98034c223aba4e96a0e7dbd0eaccabca2a26c9768cfa50347477c432398ca563471853e8a24abbec4472c8a8f18ddb1ea84efd6be9ab2fe47ce2b0ea0fc3bbcdf0b3a1fb2774020d5f23f417e850a621f993320503670802962260b6cd100dda57b19350f8741da3f5f3218ac4ec3d0179f63784aa635a7ed1afaf72040980398f00677bc4c449974f8a63aacc150f539bdb7f51517739260c654b8bb4495549297ff4a1ad026f447f4478d9116bb52a6c664e31c1191e3fdf0584bed7077ffdaf767d3a950ddc01b6a55675884f1880475f12d4380c88a2a333ce67d2c24168e557c0ab07b12590520bf71493f5cd88fea8858bfd069dbf9504b5539f6d76619093c663118e49c27f3bd70e59d5381fcd5ac73f8f07aea047af7b24efaed13b26f11e3361f0aacadcb5f1d84c94e349c03b84e95efa9ac05d5983357939c5ad167a1abe4e6974f9360ffe0aca0ed9c8c2d09b417d9c04537986bf5a4055b615b98765d872872893bfed080197b383060550d25c30bb1cb19de5c590f0b163f9b12e9ca1c7cf2e126aa75f444f926a7f77b938746e56cc41b460144e61727932760037475d584ea9dfb062eebf8b30c38a9989a75964f11adf545325a6bb460ea010fb79d356feccb7fa46c6429f9fd43e4ea05700b1968fd8ce3cdd4bd921420c560453ded07c1b235866f01e909f5d890100c2170df1be4809eb0af36f31face041319892aab33447bbc0b23a239c44c178cbd8139ac84df6fb990cff8f2bb8f0f196430c55986ba732cefb8b48695fd4d53e8dcb9c2ff58e3ffbe38392c237d155083f7f01495f554f43e498dcd163a4fa71e1cad0c5bdc8ed39ddaa4755bbcb370ae1715fada9f2758a6461488e0915a1f9e0970602487697f4fb7b73c68e68b61018b5911d9a0364f515ad97f163ad10e2b85511006e55c671b37b9e4cdbeb5fb1064efce4da947f7457e7e6abce8154c556343f9e0adf5d95ea3dfd3de75cb2a165df699ec691525c0f84f3f91a716fa3200eb4404550867d4f004a5573138f587d2ca7f62543516cd06e04827a4be596b41cfcef7386f017d160908ccb33b3f91a2ba79c9696de9d9719e6a2f55ad4180c95f73bab4cae352fdfc2f236b41b4587d3b9a6e499f4a1b415d8bc6306668ce9ce36fd7be2e5c7e016ee6b7d40ad45a9fc0b53dc486eb127705ed80204a61aeffdc5590824a7edc097b2f4d4e7d483babfe6350171a585354ece8b8e5908aa3557762ca3f99d201e02e1c8f7f3bc77120cd0350e5417d39b01b1dc9f0f34a433b8a3cef5d3f85ac0a055019944114acf63dcd9b24828b92964e71ab4375852a8a2c1806feb40e5ba718e</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>交易</category>
+      </categories>
+      <tags>
+        <tag>套利</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【天赋树】一个期权交易员的自我修养 - 转载</title>
+    <url>/archives/bf7d175a.html</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="51447b7130e8e4753e7a623ae5bb148c67d207844686b608d2dc43c3a71b66ce">c9633bf891dcd16dfc4a39c0845dabc37417b6f0fa6ff49b3c805eea378c6c3b49d55f8fb548fba9995d74decbc6ce7ddfc38c3cb53fe0b9513e749382893823344d17916c8aebc341f9c6d1f69cb0023c85453325d6adda7619e7ba0fe4cb2e39bbb7dc5e54eb82a9e80185ad5274744c68996d3755d890b1ab07711e362e9b32a895f54121194da21a885b8751573b688d2350542dc29e59e7045707b8d13d576c972c969a1949e28250e536b82a0c159515b97b316fedfb62e2969152dace6277302588cb9067383cc243b3f1e745a76eaaa24f15f58af6a0e5f7d6b90beab7c70de0ecf34ce49cbb9c9a187f92ef1521147fc636f97044089a9a27224d75aab448861dca4d22aeadfce16b6c501fff2cab868ea55e464ba7c06020fcccf08ccd7d8b1234db3f5ff9bed71e4348f05cdbc5dedd66388d059bd8afe16955157930ad465f101395d4e674b7a2d3a3acbeb15378d04593c3de29b59f1a064520b2c613f5bd15958d2622365c90aa2094fc79cea0a19286b52e9bc4fb852ea7efd947cdf1d0b22d7143fd05f4ccbad115126eeadb5388d75856fd8cc2b263e27c702fb0c5f1f5155393f58bd336638f0fcdbcdfea1fdf8a57a08af99cb18047313b8c43e5d8e76e03d9da39c8d7d47a112f6cefcb116f75e104754e47806688a5dd838b142c669b5a5ce8a063a5ff09c70c5fd883880d47dca81939b636c7c965dcbd568bcdea7f59e8cabc0fb7d8f0dabb701c402b00c44ddd832c15a6e0c0bee43d0e3ce4ebfa08cb93d04c43a6b7e4562ba48585f609915fdf23da14b4cbcb25e6264253f7558fa983603dfb003699495dee28aa95c22a7ce8108fd2738b68ad625feed69650b2503f03cb1033bebf0d017879992ecd6cae17a2bed3dfeda188fe390e1646d7a8baf3699a69d4b1cb9ece355cea170d6257d5783ce9891b58feb934b3ee31e6d485a5317c58cf84e7c1f0bdc10e1b970196e3c926a15a426a0d0a31ce5ed420a4173201567f898bf743f16e642d5203642bfd2555b7862be148dfda82ab1357de6e899fd2776626f8fbd6d1aaa30f2a7f88451a3de17499fa8f8ce676f71b14faf2338fb9ca38a1a6839b534d3c64d003793f0e692f87030b71cffd65fc5c70ad6008acca49c827d51121fc817a6abfb49e27f8a46e92b60e661c186ab1f95b7ee528b7db2cb678b8daf0edc7a3b89cb74fec6c63f858a945a229c83b62a9ef6a543491edf26f89fa9643228a7171757b95f1a1a432ed437c887179b37f0e47275775ec39c1e7601e345093329ad53617a47a2738ed3eaef3953dff6cd1a37a14e630859b68fedc0275e4df07d5bf25092e42ed5c0b66b2cf95161754e513dbd60f199d6c7ce21c1cae1ded0f37064cbd3b94e9b6707cf7b6b28be67434847b505eb826a91a7c36f4f04e1132afc10217e2fd3bdbe685a8b7c8871d4915e96c678ea87dcc90c4ce3cf7a6ef77d2f75dcdcb7a174d729e06dbbd71f1e597ef708a43499566dff71a750eab65fff6174295736fe2346282ee1e6ca667900071a3ceea7380315550023caed7e181bbb3cefa793265cd82d5759e6d50cb661e4c7983b08412bfa7f8375845d38f82f9c07c636b5e6d9c0b521c595ecbd7a46d518b8284e3b15bfe52e947375d4cefca3771dfd756fc2ca68bc565f8b85a5a2dc5a4f02d7c6f2ed91ebfa292b5f116c6edbc2d9f8883505b22a23e0344be17246bd2b61b919b444d7e246092324f38f2edb877908224e033bb24ad13b7ab5ce2e9a5f69ed89061dbe4f891176001c0be4c31c789b253d1e54be9c804e46cf28abe5bce35e7a65cacb7414ef0cd7ba533432b92f9932180cff592ab07828dd3430ae72ccdd6fa0b1d17a0b4039f452fb3439b9c22ebb6d43954fe97da8593a5770cd069254d3896c8fb214b1f1a3b37ae2182e1924c6978f2e5458465b44ec31e2cf1c73d318da3e2155c53028d19e28565ca3bc66be8078ac918b1d7a53535eaf3f5df41c704e481bac31e229e5e3578a5f5623792a7aa820cd750e41315a1a8d82879051578409cdf231b12a643dd01516414470a3f78b9d049ef0decfd3a4eaf9b3c0c3870edf5664804761aa21bc439541f17377f177c733f00e9faa021c2d52faf924c7da079c49a83458845e76fea8595071ee3c5cdbfabcfd9b82918b1b4e65ccfc3b4475cb8c7b02517836ba8234542ec8faf8d378ff3a32ef73f090c061047e23818b17451e79c8eb6ea2336308418b4f00ef75e1f1b0f6882afed1bbc79366afaf3c2975e4ebc7eb16ed538092d1ffe5f39e5cbd94421a51a785dd2abbefbb65c5a11e0597d9c43dd7aab4e3bc3039ae28fdbd6fec8f2dd6dfd1a9e9bf6f6a0d4642d2256b9f7189275ee458bb8448c4fc2bbe57d878ff4b024a71f24bb7872db745b5bc549a9a4b64813569a44054ad415cfeb41d44874977758b214a41b2a02d7d6062eb940727dc75fcae5af137262b1d05a7f2fb185d13a667e82db46bf6303eb2c0e944c5aaac58288d36bd238249636aa7e118c5f121f67acd7bcd3b23b466f3e86f259271c5f63dc24825094cc7946fc527e35063b1673714edf2fa89a507a49d9fedd0dff3ad1500f6b18cafdba2ac4919acd28ebf9bcd4cda1550cfb0891dd85482b171906319b2331482cfa640f9e0557335c60b0e4ef9ca1040d1a1d6877256a8f6fe014e4b41d59d54aade6f095081c2115e258e62051b386d40d2e099dbe56c197334b1a08c1fdd1819988d25e0248e211b00574e72cd0cbbd347eb6618e72f1045857e2f01dcb52819983aa9ce7a5aa2d05d3d92b3b68511579b4f04fd75007e506bc182fb5aaf56105de2fb2fa618a64072fc99d23499776854ad6dd98f7142daa30d89122862e3e0cad31fc5b26b6bbca539e3e8a3537efb490d5242d7e10db467b4a2019947af8320e16a073e3a8cfbf12dfc5e85655c8e129dfb2d41caa7f4da58c852d58cdf574b62b9388f108d19950b386246c4c4c351918487630ee95328ac1478f4095a9f63d7c8c9da28796218896d511e0235c2e6b303e4cd4cf101adf61fa424a388660710a39273f68a6096e802ca954ce7ca37cb0c189a8e7d086ddc8da1a8756538233a2cf03d9424adb9fb03fb814a080bc7c21a5a810c19f805583c4e2834a0e81f0ae18b04c09c5d5614bc499bddd5aaab8a8a437214093d00e7578cb2997d462a5ed433a32ef9de368a8ffab7d41745f4208d0e76cad8248406d1ffdc4872abe96569fde41cbae3c470648c3eb9551b80964e1ff46b579a7b3fa2d17019fdf16b3922ed48f45f8a123298d3400474f4d36b70a547ccaf6082356b4771f5e221799090b78fc6f40908fcf5b1250c04bd24543b716aeba68b6ccdfd65ce57e8fc1efee5cd14ae833fac6ac9f4d5f1dd5ef582d4159242f7ed375606d42e3f630ae577a2f64d696e1a574b09bcc6c826a5d2ddd99a2065f533e5214f73bf12fea0f0a4f0db149b0918095ceafac7d7a448f7846c42befa4a75a3cb6cc441420fd7f0e5e6b6fb105c5fed8035bc976099662e2e7cdc22e36a2085d8f644b9052b7cfb7d2c465e4a342916cd9f97dcc46840306455f8e034edafc1bfeedd3f43be617b8a784a281cbeb6aacf9e24cc4890315ea413940b89fc6759ca5b588b3d693acdc46022cb16f4710884d86b3c363d09c55527bf3b4b8c83896201f3e2de78b28f50068c668b0c0340e382b2bdd6c5e085e03800ef3e197437edcee8c03b11df3291b2b93318aaf6a635fc52f331a78a5edb61c01fd2f5029cec7892e5faa91eb8d4bfd78f7b31bd49c1c6264ebef8bbd4d3b3ffb2642ad78e25bfd92cc7b2932cca66a898a61d3e7eee7072bf4d8d87b11a9445bfac203667d2dc326852119eb779ee85faef9b611b5e90dbf95f6d1b9b64ac8948e920946dc3223270581dfe68abb6b825dc46de193060d025ea27fea3c5512bab981f2f285fbb7d377ce8d9e658d5aca759ee7e85e344665e9652ef873753e6a3a6551620067ee3c83af788452c12ddfa0bec958ca169e9d1721fe235c10f6a60e3cb3028835947f3754dba8b71193fc30163da5e87f23017b77936ed08670c75e9264a0b0cf2c1509b83120f54eddfc17003aa1d48569f3af7324d8977a7d151cbf4f0b6cf3cf3e6bbf9a0a4fb10a6c3b4126e500f920c79ac7cfe3a8d91ac733bf5a7540a83caf6898e5bf90e7dbb8a9fe4cdd3e1ee978b069e50d1ca5873a4b1c2a88ae277ddae8eb844a8806f6032dbce452daaf4bd922bbc28c57ab49b404c93aba4ab75f12e47d982910be4ff9a52b907fa47e3f676aafe703817006bd4848731f4b8cd3a7e46a7a95f825d3c7b33d633530b7f86787e0db108c6819ffd256daad7776a0bb2580a53fce39042d3c1ce9a7833dd51ef029aac8c66f56cfa6737a7f3adef7c1d0a144ee75126d834a882bb854c8f58e3ef5d09480db29906ce14d9cc08d889768d9424df84128a93d32d1cddac915134a6cd2759f73500c938c84689eecf0c59335828884790a3b5a9fab7efd3b75197dd2c5744eee2fb31df3f73d7f0723194847b23d33b1ad145bd37da55746799db021a9a05c9ebbb6e300d38c37e697a4eb56b18018fb89aceaa70d80718636a103e70610d2397f90c949e26b6d315be80c6239ee444a79dfc12bcb989cc876ef1c5805f9e9268e5ff767c60cba22ccf06a4656824e8a101b02a8d090233eb494483d24e0c3e1d3bd986c8623b80a4386511cd8cabf5449050a67602ce7b3e0275cb09915816273db15954c1427a9fffcc9c850eb956c998d89a1df2e7898ec886bb2e23934223b9b4386a47fb65bfa164965b1c8a0a0853933aa711eebf6823b66ac1aa6b054ef756b86953762c2dbc1a1f57b1da2380ed0741f4c349d9d40db81e56fec7f8a2b090bb9285233fd91caa83bcb0800fedd184f19a406fe4f6fb6387fe186caa6f2b54f572f0378c93988ced8edef65aa3bd979675ed28d8a95ca8ca7c84783267cd240745402f4c88b8af0f40d0c13ce0ea4b2d6d52d107ff0d5fee9a3e01efa5ac414a91f5f5dfd6ba8408065835d40560795cb58c8168a1a033fd44f67e2b20ac1d90fd5d46ed416e0968363a50d3f73f7b910085a10c5614e2915a38e6cce444589eed8cd2264c8edf01eba7c6d4005ab336cbbf37a853a37aa4905b0b7b578800677cb4485c0a5cc0eb042ffb41bef5c820bdcc25afd3152efa51512b090775b8f37153babfe9b86556917744acdfdeaf8c21ae2969e74b48399c4c9a54a76baaeb48d998c8bf8c2ea85f7a9ddf092b5346142881bf2754e9a590cb7a79dd572aa32b208a033cd65610030879ecb38755c0bbed7cd8df608411ba98537fc278ba4c98ac4f14ec805e92ff5fdc2ce2be8b8cffb95165e03eb70f9679a9e3f7aef2d1fcd59976070e61fb1bd870b5a7d4f2e712be4e9da06d27de7562e63f95f5cf1a5a3b77c8e1964435e34409bf5ba1b25817e86fc25f8ecd628a7406296df774e803c3abf84fe6e0a716e70a113858a85af1cf984172db4bfd5b5ac39cd1eba9ed541a5a4abcff80d0f0db55df43aed107bdfe0d0ea7a6d4202eca6a15efcc02f6d332b7dfe50509b84b40c227c17cd7b2794d3d1e0a54955201d46c08b972040f2c78fcd83706d15922ab04afb9482449670e32cd1e9552665d801e7cf7194507c8308312c165b459e07c69cdbec511feddd9b45508e2c2cefa3b2267239abd3779366f65bc82595527f1b4e895334765f368134c853da506ac18567b1f963bdc0b5446000119549d90c6fda5b999ffbe9c4aa910fa03720265594cffcea71f4446959d873e27a7a012080478542284e7bc1a560540bd2ed90b9881c86d8c14339e28af912aa0773826680a36c22fd37dffd8706baf8f7458227a8c0cd779eecfe59542bd5c1ce513549d8c9090a1dcd1ccfcfc6be8064af7f699f759a102c93342250cbdd56cbaafa547c93196413776d21808ee1d7dcef1f3ba4f46f2bd7ef7dc0e6c57bf9ea5b7052e9759567f95d372115c5b384a4fa6c8b6f4fd6da648218c463cccadc28a8a0fe3ec211f202524767aa4f7f61e0dcbfe140d64c2db5c63a81b965ee3792c8b22565fe3c043a6e3e21525f33ac712c561c539fe1c906db8527858093725e68a2edf47a8ce641251132f906a3a9a94970e9b608e9b4be5cff4398f20ea6b92e82aab03edafb520d13b7196a3cccdc53166d748ea238f2420de9ead383ad929439ea535cab2f076648814c01104a6d85e53a53515c33dba749c2c92c6f381e6190e1dfefc63b2465ba1737960e08ff4b59a5cb33995a09d180d477e6118904ab1bbc6819fbb56b84f43e5da4a10b3286afaff842791812dbee0b7afc90aecce104047bd1a3d16a4344b269b153bc9086b77dc57ceb0a34d4df17caf4be588fcfc0438bf484c06d837f619379eb0a0613405a291fb314bf4981b62d23d8f206605ca6e4ea32421241825a3e27d780f6a98a0876e390cffd87c24738b1f1e3894e8f98882ac825f39746d1c78c2e4f0cec9d4b41a54edb33a3c47dcedc36fda15bcf5cd2a4cdd71d9b56eec59d96f0beb07686c31d1ca12b4c234b7baa2613d23fbcdde7300be23d2734705a615f39c7f88448c89d4887989fe0854a916ba59668ba89e4661d511ab3d7d0e004d31a3383b8935faa1f12607264b849ff910f2876b85b78fba62ad0c67e83a3ccef79627cdfc7b5de84968f3a7ca2cf704af27c765e980a3c7e69ba307627be48d37f64637e79f1c739475ed34233d0af40406e9d99b05bb46d1710d9913c082750412341fd4a3359ecaf6f3f552a5de68f0b52ed6054acd380ce527f7b2ca68a8a30fd7baaf83ae22e3d78f3526fe8f2f499555569f71820a1dd46ea107d3d4da4a31fb21ba28c77efc66a21b65924f3c03d4efda12ac7d6f70c52aa6e5f650601c2aa0c52aa5da8feea1df7d9d93135fef9665af21e628a63bd01801c06e3e0c36633271c90ecfabadaa32a91727b364c07d2be4797ab61f818fea24b0433078fd56f65ec1df6c1b542d083b4e6104374a0d47827912e147ba059cbdc0ae11bded8adeb42a8a8f139434b321323c0496ee015dc6209e7f4bbc274afcfb2d5725d2b5cd316c44042999e5fe26621646679f0b7a10eac77d8530d15991e6a862848e9a40e8e0715f5af3c6693b197d768b2435bb80f914b507e78d664ccce0a56733363fbfeb20ae3caf155d75e38259701b3b1da39238bc25de5d654b62df0345613289d0ef93b19c9b6b065ae52e1a987dbbaa8936cd7be41035a7bea64689dbe1f25b55177c370506d42af33b88b9a5ff252c83cdccaf82b3b63f315c261ab000672e804c6fa277be37c46425426d9f36e0d46a44b99fb0ddb3b5d4b8ac80ac69c0cecb15b3a51a203da91c40c77e61bb73332bd768aa6dc66e6dec61244129dd8f765c437ee4d0d097f6362a33f56daa901d3d29048285d04ffbdd93cce0828c07d9371af27079b2789072f7e78ad52910144a947bf6f122bd78c15e1976efee350b5051c121681d3327e5b127aafad80bc2c9cb90b13028d20f5cfc1842467d1c765440300d223994e0f72e5eb695a943f7450309c02253688bc8265ff66d6d118bbb4549595ef56638e9a801093930e0203ba2e1650a5e276f86e77b362a931ac04fd062c86474f31e2b27093669ee2b30f312d3da680a5bdc106efe9e22c5aed7e39bd3c2c0df1016436ce95987b4b5c5e6ebf6f400d48b53cc1aba1d5f61945fa21259d59d98f954f78b09eb8842c51d01248e0cf3417eb8e52e0301c2ed185af99a236c707147e1572525a27da4f72b8f2671459be4b116e80ae90c64baac6198e03b2071278699b9fa6537a62dba37b4f9d067ce55462e964c66a7c8079934278dfa849c45a3e3daac397206c12a80846a87dbd4f1830cfbd9e8a5e377a109a7a85332f7896facf94ad9128f2bfaa618eea323aeb9b7be0adc84f75f0d101fb42ba73e601c57ab0557cb5880d6410019a0a9fe5b178d228f64c787d3dac446b64736345886b750186fab2c3c87bb985238dd3779c03791eb4de9cdbdba36c1e1bc3be9a7ef948e803b82744e171a4f40409708b3f851164fc7ecc2b12beae5c67af8594790056abd567faa9016bbe85c2275e2c57fe8043fbb019c41ca2005c661d538adffc44d58c44dd379a94e9d4114a0c8dc7917ecd3bcfb4204be0ec1d0baadddb53e4f03078287e3be420e4ace2f09798b58fd81198c4cde52bb4b514a7dd7dbd86874969f5c678960fbbe8fc598c9bd08d0d72091987f04e63aabf60d8f3cab1791c6b75e65351a88a7813a27fe7fad0ad44c15ca42ce56573ba40aad47f408ce3d5c20b7163ff80e36ce70ed76cad86f13c93a7005f34ffd8f9e7974da8ce9dfdaf3889c90d13ec8a9386418a832b62d86e0c2519ad2b169a9f2fda036e17118f77b377b7051b7492278caa972306687267ff23fa0b59f2ed0cffd05d6eef247950bbce02261eda2b4a68b2e6202e63d900e145157eea7e47c4bf5451de192ee8046095c72c9218bd62bac495cdd620969533da06b4f2058476b00ad4d65dd4813620c9ab3ae1ce7f225ccfb424cf3dc0be91a8bb4d4116fa0396a21a806494a6866a51d1644c481ac182e532095487782b084a71066df26b5116e21870a15df2faabc2a47c638f6c9065b5d0e141c6497b57ce5bded0cd919aa24a152941b870b00f5b8546b23855835feae2ec80050b4eb0d231c38e8ae8acf81f576169e26021f6e5823e0569ad2320442321239a344d381520ea281ce975eb3347e11e6658dc8f40ec2f5da1a35e999c953b5899f98daa9e44842918e62c9cc0b11cfe7512966cd991709e431ce278c1e805f6e9fddcd98f008c8d664580d42fcd97a487dc1502546b6dc279d1aec041eb9489d5000bc6b206ad982f1a3e663cf2404df2237e357aee29560a74202de8d3b1f997b017a375a243686f6afa1b071feb8b38a8504a1a17406b272e04b732425f85cadb478f3fb899dc44999f1dbe70be80345ae24fe7dcce90853f563c3311e762e50f75150cb00457d0937516447e432847edba6147c0517766184fd14d163c6d54d89cc6eb7f9b76413f8ac97164a6ad5054c1b4285a187e98711ccdbb93f66f468f338f6e5c13bdad6b26d1155716231b3b0da493a1db36b94502909cfbd84f975a453afaa242a44e010589e3d2787542ba58e6f6a4fd10eb846f88ed2acd6cfd3e73eaa4e14a64dd41eedd7dc6f31fae0265f01c49246a2962e6f27e6233adeef4ede0664b69d21760810a4059da513d7885167499313b9dc7b444418caccb4ed3e8250936c4aa98244fa9933ff17396c4e9dff16ba34a2c87edf9757f547f1aa02d1716f33339aae699e04afc18f82862827e7f88763cb6afa95df94dd7556ee0989216afa36abc8f9508b70afc93c386fa02a4f75ca874a091ed4ec4a26f2bfec932374e8b90e5f165cd9f6636ac4f3ab53808a77faad3f9f3eecadd5f45c07deb05a2eca34869e10bd8b320c2a1a71ba8a1b997b0e7fd15ca70a60f8fa77cd2f5b47dabf3cebc257bf8fef0b4954b42da7877d39b5cdc0498a902fc37d3f609eb4e1256c446b863679c0027e51b77c7a63eb8af9ea1cb20dd94f13f38add06328d034eb9f8fa87e43b37908f755d5b769e6a13a6d6f9561bcb83222613f26e2fa9028ac29d85afacba722ae1a7485ac1f43a7595717e4898f98ace195209bde9ebfa06eee38c8c5d785f6cb05919608472b92cec60f0fb3dbebfb395473081afd437a6fa3249ace74a245e13f3e70b0d4235a3dde1ad7d6b2b41b4d771e69218160b81969b60c89ce9b7bc21204518c7893825672a2a5e5249f0f549fe2a9079945f907c9c1dede740a1794fd3bc6514a5f0c45aba19b5ee186ed90ac4410accb9166f677b593cf6035d7da1dca042c7ff3532e941d2e02eb78c0de8f1b9abfcaf2d29ef7e41ebb6bbeb2bba37490909355cc174cc60a2a7d555ea0bcea1f13423f6076a2f5ba9840694679ea730cd2d3f0623f5ad947d1c291e79965c8799b3219eaf1fb80c2cfc7a44fa17523ba67d721f086b1b5f5328e84b7ebf1533c88afb9d9d44ea0a8869f5f6f77747efad2e30d662b784014ae144a5d5ac36e4470c099b81f19448f6ce33c4e6f02a244728b01a93619e975840cf7911ee0ec996fb285ce493681d3ff76a960ff6b3d0d4ab5c336b49c4d09bbefecefb6d25eed59823f1fa532594f7d54b73dfcca36224dbdf89a68af43ae6f2ad4cf347f161c949e1fff73e65cc4524809d2893a7876dbf431aecfce56d9bae057d367c2f52471f7c0ac08dbcd88260e4afa2b75064fb830962b21f542147d5145bc198564c4cb653358598dd9dd69180975ebaa2f899744c43925a94cdbab590cd687d10a8c18252395f944251750f3d2010c47e8df74ad16bba94abc428899578abfdcd9318b50fc1b84bfe5bf4af2c64c2085eee1b83c612b391e2528ff30bd97811fdc1763e388a34ab8df40c90f4e2f012b0816d729524546deb45fbade7b91e6b0f7e0d9aa318d0857f0ba390b579ef2d61c0a22f045d9a5b372c7a6b7676d7035eb7f486a500b1506a3364379e1baf5eb504de34fd4c861edc2684244344bb26511818210b8854e82362999de3c95db388c86c1caedf388d139b12903a8a5f89f995481a0aba4165db7ab098a5d8ac93a9c1425d111ea6fba9a4422952c95f62a199bd5eb363da19830afde0abb97cb0f060e314cdad9e248ac10c84e3bef0a4a467c0a3182a128a754fa6ca06ea0c6524dac74948e58e3a9a7e03469e69516ec504a15b16ca5096894bf0a71b25f5305736858215bfd76ec964040b778d8d19d782708e2db7887c310bd8dcb9d8ec3d7ef86e6632a756cbea6b03ca0faec32fca3c4e01183964549a265b903131986df4f2099626875486c069988b36e77553fc249a328c851c6d4156e590e3ad724d8042b87ba446557fcb20d6163970a6aff9dec2fa3b40057dc5177f1bd263675ed9d5947c550872504cf15460f566f6735bb0d6e6bc1cb31</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>交易</category>
+        <category>期权</category>
+      </categories>
+      <tags>
+        <tag>天赋树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用hexo搭建个人博客</title>
+    <url>/archives/ba7bb759.html</url>
+    <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)</p>
+<a id="more"></a>
+
+<h1 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h1><h2 id="修改post初始生成样式"><a href="#修改post初始生成样式" class="headerlink" title="修改post初始生成样式"></a>修改post初始生成样式</h2><p>在目录scaffolds下，修改post.md</p>
+<h1 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h1><h2 id="fork-me-on-github"><a href="#fork-me-on-github" class="headerlink" title="fork me on github"></a>fork me on github</h2><p>当前版本next集成了这个功能。在<strong>主题配置</strong>中修改即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># &#96;Follow me on GitHub&#96; banner in the top-right corner.</span><br><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https:&#x2F;&#x2F;github.com&#x2F;cslzhl</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
+<hr>
+<p>之前版本在<strong>主题目录</strong>(themes/next/layout)下修改_layout.swig文件，可从<a href="https://tholman.com/github-corners/">GitHub Corners</a>中选一种样式</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;&#123;&#123; container_class &#125;&#125; &#123;% block page_class %&#125;&#123;% endblock %&#125; &quot;&gt;</span><br><span class="line">&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</span><br><span class="line"><span class="addition">+ &lt;a href=&quot;https://github.com/cslzhl&quot; class=&quot;github-corner&quot; aria-label=&quot;View source on GitHub&quot;&gt;&lt;svg width=&quot;80&quot; height=&quot;80&quot; viewBox=&quot;0 0 250 250&quot; style=&quot;fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&quot; fill=&quot;currentColor&quot; style=&quot;transform-origin: 130px 106px;&quot; class=&quot;octo-arm&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&quot; fill=&quot;currentColor&quot; class=&quot;octo-body&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;style&gt;.github-corner:hover .octo-arm&#123;animation:octocat-wave 560ms ease-in-out&#125;@keyframes octocat-wave&#123;0%,100%&#123;transform:rotate(0)&#125;20%,60%&#123;transform:rotate(-25deg)&#125;40%,80%&#123;transform:rotate(10deg)&#125;&#125;@media (max-width:500px)&#123;.github-corner:hover .octo-arm&#123;animation:none&#125;.github-corner .octo-arm&#123;animation:octocat-wave 560ms ease-in-out&#125;&#125;&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="阅读全文跳转"><a href="#阅读全文跳转" class="headerlink" title="阅读全文跳转"></a>阅读全文跳转</h2><p>修改主题文件(themes/next/layout/_macro/post.swig)</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">- &lt;a class=&quot;btn&quot; href=&quot;&#123;&#123; url_for(post.path) &#125;&#125;#more&quot; rel=&quot;contents&quot;&gt;</span></span><br><span class="line"><span class="addition">+ &lt;a class=&quot;btn&quot; href=&quot;&#123;&#123; url_for(post.path) &#125;&#125;&quot; rel=&quot;contents&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>以下方法以失效</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scroll_to_more: false</span><br></pre></td></tr></table></figure>
+<h2 id="推荐文章插件"><a href="#推荐文章插件" class="headerlink" title="推荐文章插件"></a>推荐文章插件</h2><p>这个帮助我们根据标签推荐相关文章，当前版本NexT主题集成了这个插件的配置。</p>
+<h3 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h3><p><a href="https://github.com/tea3/hexo-related-popular-posts">hexo-related-popular-posts</a></p>
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><p>安装插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
+<p>修改主题配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">related_posts:</span><br><span class="line">  enable: true</span><br><span class="line">  title: 推荐文章 # Custom header, leave empty to use the default one</span><br><span class="line">  display_in_home: false</span><br><span class="line">  params:</span><br><span class="line">    maxCount: 5</span><br><span class="line">    PPMixingRate: 0.25</span><br><span class="line">    isDate: false</span><br><span class="line">    isImage: false</span><br><span class="line">    isExcerpt: false</span><br></pre></td></tr></table></figure>
+<h2 id="Hexo修改back2top标签"><a href="#Hexo修改back2top标签" class="headerlink" title="Hexo修改back2top标签"></a>Hexo修改back2top标签</h2><h3 id="地址-1"><a href="#地址-1" class="headerlink" title="地址"></a>地址</h3><p><a href="https://github.com/jiangtj-lab/hexo-cake-moon-menu">hexo-cake-moon-menu</a></p>
+<h3 id="安装配置-1"><a href="#安装配置-1" class="headerlink" title="安装配置"></a>安装配置</h3><p>安装插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cake-moon-menu --save</span><br></pre></td></tr></table></figure>
+<p>修改站点配置<br>在站点配置文件_config.yml 中添加以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">moon_menu:</span><br><span class="line">  back2top:</span><br><span class="line">    enable: true</span><br><span class="line">    icon: fa fa-chevron-up</span><br><span class="line">    func: back2top</span><br><span class="line">    order: -1</span><br><span class="line">  back2bottom:</span><br><span class="line">    enable: true</span><br><span class="line">    icon: fa fa-chevron-down</span><br><span class="line">    func: back2bottom</span><br><span class="line">    order: -2</span><br></pre></td></tr></table></figure>
+<hr>
+<p>在next主题配置中，以下为back2top条：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: true # 在左边文章目录下</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true # 显示百分比</span><br></pre></td></tr></table></figure>
+<h2 id="侧边栏标签等数字显示"><a href="#侧边栏标签等数字显示" class="headerlink" title="侧边栏标签等数字显示"></a>侧边栏标签等数字显示</h2><p>修改next主题配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu_settings:</span><br><span class="line">  icons: true</span><br><span class="line">  badges: true</span><br></pre></td></tr></table></figure>
+<h2 id="Hexo文章加密插件"><a href="#Hexo文章加密插件" class="headerlink" title="Hexo文章加密插件"></a>Hexo文章加密插件</h2><h3 id="地址-2"><a href="#地址-2" class="headerlink" title="地址"></a>地址</h3><p><a href="https://github.com/D0n9X1n/hexo-blog-encrypt">hexo-blog-encrypt</a></p>
+<h3 id="安装配置-2"><a href="#安装配置-2" class="headerlink" title="安装配置"></a>安装配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-blog-encrypt --save</span><br></pre></td></tr></table></figure>
+<p>修改站点配置文件,增加如下代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Security</span><br><span class="line">encrypt: # hexo-blog-encrypt</span><br><span class="line">  abstract: 有东西被加密了, 请输入密码查看.</span><br><span class="line">  message: 您好, 这里需要密码.</span><br><span class="line">  tags:</span><br><span class="line">  - &#123;name: tagName, password: 密码A&#125;</span><br><span class="line">  - &#123;name: tagName, password: 密码B&#125;</span><br><span class="line">  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.</span><br><span class="line">  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</span><br></pre></td></tr></table></figure>
+<p>对博文禁用 Tag 加密</p>
+<p>只需要将博文头部的 password 设置为 “” 即可取消 Tag 加密.</p>
+<h2 id="Hexo-豆瓣读书、豆瓣电影插件"><a href="#Hexo-豆瓣读书、豆瓣电影插件" class="headerlink" title="Hexo 豆瓣读书、豆瓣电影插件"></a>Hexo 豆瓣读书、豆瓣电影插件</h2><h3 id="安装配置-3"><a href="#安装配置-3" class="headerlink" title="安装配置"></a>安装配置</h3><p>安装插件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-douban --save</span><br></pre></td></tr></table></figure>
+<p>启动：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo douban -bgm &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://tding.top/archives/567debe0.html">本博客当前使用的插件总结</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>建站教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>github page</tag>
       </tags>
   </entry>
 </search>
