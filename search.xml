@@ -315,6 +315,21 @@
     <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)</p>
 <a id="more"></a>
 
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1>]]></content>
+      <categories>
+        <category>建站教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>github page</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo主题美化及常用插件使用</title>
+    <url>/archives/a6fdd32d.html</url>
+    <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)</p>
+<a id="more"></a>
+
 <h1 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h1><h2 id="修改post初始生成样式"><a href="#修改post初始生成样式" class="headerlink" title="修改post初始生成样式"></a>修改post初始生成样式</h2><p>在目录scaffolds下，修改post.md</p>
 <h1 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h1><h2 id="fork-me-on-github"><a href="#fork-me-on-github" class="headerlink" title="fork me on github"></a>fork me on github</h2><p>当前版本next集成了这个功能。在<strong>主题配置</strong>中修改即可</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># &#96;Follow me on GitHub&#96; banner in the top-right corner.</span><br><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https:&#x2F;&#x2F;github.com&#x2F;cslzhl</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
@@ -363,5 +378,10 @@
         <tag>hexo</tag>
         <tag>github page</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>统计检验</title>
+    <url>/archives/d831d399.html</url>
+    <content><![CDATA[<h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><h2 id="Wilcoxon-秩和检验"><a href="#Wilcoxon-秩和检验" class="headerlink" title="Wilcoxon 秩和检验"></a>Wilcoxon 秩和检验</h2>]]></content>
   </entry>
 </search>
