@@ -312,10 +312,29 @@
   <entry>
     <title>使用hexo搭建个人博客</title>
     <url>/archives/ba7bb759.html</url>
-    <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)</p>
+    <content><![CDATA[<p>前言：本博客搭建时使用的nodejs版本为12.21.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)</p>
 <a id="more"></a>
 
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1>]]></content>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>在开始一切之前，你必须已经：</p>
+<ul>
+<li>有一个github或gitee账号，没有的话去注册一个；</li>
+<li>安装了node.js、npm，并了解相关基础知识</li>
+</ul>
+<p>本文所使用的环境：</p>
+<ul>
+<li><a href="mailto:&#110;&#x6f;&#x64;&#101;&#x2e;&#106;&#115;&#64;&#49;&#50;&#46;&#x32;&#x30;&#46;&#x31;">&#110;&#x6f;&#x64;&#101;&#x2e;&#106;&#115;&#64;&#49;&#50;&#46;&#x32;&#x30;&#46;&#x31;</a></li>
+<li><a href="mailto:&#x68;&#x65;&#x78;&#x6f;&#x40;&#x35;&#46;&#51;&#46;&#48;">&#x68;&#x65;&#x78;&#x6f;&#x40;&#x35;&#46;&#51;&#46;&#48;</a></li>
+<li><a href="mailto:&#x6e;&#101;&#x78;&#x74;&#x40;&#55;&#x2e;&#x34;&#x2e;&#48;">&#x6e;&#101;&#x78;&#x74;&#x40;&#55;&#x2e;&#x34;&#x2e;&#48;</a></li>
+</ul>
+<p>npm推荐使用国内源，速度方便快捷</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 设置成淘宝源</span><br><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line"># 查看结果</span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+<h1 id="使用hexo写博客"><a href="#使用hexo写博客" class="headerlink" title="使用hexo写博客"></a>使用hexo写博客</h1><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">使用hexo+github搭建免费个人博客详细教程</a></li>
+<li><a href="https://github.com/hexojs/hexo">https://github.com/hexojs/hexo</a></li>
+<li><a href="https://blog.csdn.net/qq_39207948/article/details/79449633">npm配置国内镜像资源+淘宝镜像</a></li>
+</ol>
+]]></content>
       <categories>
         <category>建站教程</category>
       </categories>
