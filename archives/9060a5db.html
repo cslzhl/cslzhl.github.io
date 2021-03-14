@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cslzhl.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="有东西被加密了, 请输入密码查看.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ftx量化空间">
+<meta property="og:url" content="https://cslzhl.github.io/archives/9060a5db.html">
+<meta property="og:site_name" content="cslzhl的博客">
+<meta property="og:description" content="有东西被加密了, 请输入密码查看.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-12T12:36:39.000Z">
+<meta property="article:modified_time" content="2021-03-14T02:28:40.503Z">
+<meta property="article:author" content="cslzhl">
+<meta property="article:tag" content="量化">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://cslzhl.github.io/archives/9060a5db.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>ftx量化空间 | cslzhl的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <a target="_blank" rel="noopener" href="https://github.com/cslzhl" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">cslzhl的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">世间所有的相遇，都是久别重逢</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-movies">
+
+    <a href="/movies/" rel="section"><i class="fa fa-film fa-fw"></i>观影</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>阅读</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/9060a5db.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ftx量化空间
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-12 20:36:39" itemprop="dateCreated datePublished" datetime="2021-03-12T20:36:39+08:00">2021-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-14 10:28:40" itemprop="dateModified" datetime="2021-03-14T10:28:40+08:00">2021-03-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%A4%E6%98%93/" itemprop="url" rel="index"><span itemprop="name">交易</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/9060a5db.html" class="post-meta-item leancloud_visitors" data-flag-title="ftx量化空间" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/9060a5db.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/9060a5db.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="9ef5032144163b9b9de3c8fc6052995161f11915ac2d51f7478e6ed3a27db3d0">c9633bf891dcd16dfc4a39c0845dabc3cd4ee70baf13a3cdca64346942bd85eb87fba5b5fde171db4b712a88a0abab249323fce2babb7ef9c70efa774ccbc57be18c55723a208ec1792a50df05a9685b5002fa622d9345514f3610fcdef8e3140319f8205a9824e99af3c87bb5c75a783c179c41360731f65f010b530994f4eb41ae1589b56a8ebf311301a102189d9aa410cb66d56b5bcb11bef3cf838792a66cd77cdbfa1e8c6a513437f58f487b06ae819df989a00e828c8e896a2a80d3985169aad9291227a1673e5dada9a8cbded20e191f190a62b671e7e02eb9d349fc68b65ea9c0e94f46fefc87d487398a907181aeb342d1b24ea01abc05af8e0de462bbd430e10da007e234849a9fb71ea860a0493363fa0e5c70e0c18e9da542551d6a570522b7c798ba9050531a8e31c1679fcb3e2b2c0eaba5f995aba6eaf970c0f258349fb90eeb01c839cb53ea2b2270f33683dcba386cd6e26fa79a2825054fc10238b40a478da2bec9f170c2e98f21b0809745b955e02058485870e7b982980b99803a8dba9864e8019be268f4581455c4d8ac7c1aea8735ad5752b8b8ce7495b324c141d4826d9fea9d400dd27905a228ec5c942ae2ad21236a093e7bdbae0dec04f07326f53ec9a972040294d8df3aca98598bc3a9b389c2a601e0743e78d21a516f4e247a44bf52cfa11c23453cdbfce157d7ae26f15ef634655e1ee0252b2b9701ea311e46dc8ab21c4105c871d4e36ef524f2b06944f02342b001fffe5f42c15159316085543af277ba91f7f9e402c5288be97ff210f8c1f92a34c6f2855b6ed07290ec377553de99fb24c50dfa546ad7dcb242ab0d75e6b818b8bebe06ddb3e5518828034d15da4ba7a71c9562f6b1a709dce0eda189638933bb0cbafd91e8d602bf3a7d109123a70953578817e1af926f9b0a46ec773b6d7254d3071c9a00e0e7e474163a606212840023e913f14d24037e3a43f69b2bf86b4968b24144e3b00bf86a7bcf51076672741327647f95c9dc0b8717c4900d00b0c3dfba2e11c27d4aff4e1be18448ea1c07e66f2c38b259c58b230a1915d1642652761ff8b2cfbc35c226f2a7b86fb4d67c2ab227cd0946ce6a56ceb8c07174b3e509ea781a6a8359162dcba733f6ccb5dcc45749ecee4e55bf8715f3fb67147a5b0c926afd9b503be6f3ac0bc4f8f65f1ba2ea8cbbbf525639f4c01fe9ed5e39a5bd6588061f3906b6990cfeef343c1061388b35d6dec73cc933aec34259e748004d94f111ab8ed992d9c72837318308e75f3b2ee4c0f244b1eefa9b5e61ae4736838e17c7ace0ac10c51470cd8593872b79cd2d543793427a7315606925eea0939b529ad68c8bad1a317624aca9b7ced34610781b025886d2b29232c9e7e6a6ac1dadb1ab7bbd53845312742832ad8c8f2a13f64a21372e87990fd3aa0c71c9283ad17050849036df1b441853f73e54f51a239b1e2908735d356721d8e86a768cee27647a2d31f344e7e40a6ae8027a6aa71b8fc57d0fc9ef288a295b2c4c227dbff6c31d377a9ce6d7e89abf7119d14e0a8173917917b2acdb2680a8fae9d633c99fc5b80b679f9cd77560e6d915414a8ee4d4a88921e5fdc54d5c849a7e0471eb83de606edf6193cd989876641c126913fa2507d344e36bbfadb195cc86c1459445e5a59774f56bf46c23c0aec7085313d32309323675d2e41e7d701a5ea03eecca3982119b176f409c6841e309af2c7d2ca2ff57db4e7729f1ad992ad87bbd3d2df13275dc7d1f4cf0119c9a9ff7566b4df070de9aae3fe3ff13e38cd95e2869f9ee577146bf42dd4295ce6c50ff1560c46333973f4affeff202f98dbe78d83be10512582a05419e58f2a52ec3865c7cc150f91216127efe32f4fa3f2863a45287a44a200c346a703cd16d68b19cc9fd10236f035d8e508392e80c4e9542900567536f0ee34f0b7a2a0ff1c86405149c5b595363b85eb81b6d030ac3ce288e093ac81b52fb7c55ff076761bfeef0916f580e5a18cf6a3d9f3aaaf61007ca9f040c9ca61f1cc900e526d3d1006c14a6cebb60c6bf69013c0df226b355ca40bdd0e0c4a57dc6c36398368ce8f9e8ed1e5897db9eb46b89cfb3d5f29322fb0b19dd6ff752493a67d8cb9f62955e9fd75c66b902b8169f9f6b9c78dca5186b0f0b23a408ecb1648b41dfede411c5e1dcf156d57b011daa95c0f45d314283701032beae998bf8e0779d6424f38bfd4d9a151c42c21cec86a9adf976feebd2c92ae5334e82eaae0208c5f5ffdd6fe48bb2e986fa0fa59e1cefc1a1b74dc5c7c9bd37ff7b06f6172318838371af86e293b0104a565a33755e213c4fe2ca89918e4f847a185ca2cbdca684c4334b9b8f8096d0cd5ea32a95e12f373180ea9373c67c1ba8e3006641ff278012872d64f00d2c29cd96a8409fd9e4f4d5156ad33f4227df83e452c79b1964f935b3bc11ebe330ff5cdac13e63e9967bd58bc70f37a9a68fbff1ed4493abf9c102ceade73d1a7cc441e06e890d375923a3d60a391ed777a097b74dd5c1de503a88828f75c7ebecb92f3caad9a4e725959bd45a337b721a855fd5b79cb5f730dfc1861c4162db3a26d7d5681aa45cc13e8e08c4de79d92350b16f8608caa4b0174170cda6ff9a2a04357da1d35ed2e7b17eb96eb831abc12282de36888e2415f44b1d7a573e9e2efa40654a564853df3d43d7cc57410208667e0b8c9eeab4a4997ed9016d596e9dc3218b40474745a291a67daf01d9c16b351c8ab0cdce9f91144e8b0ad8eed353f6f705e5844f563543fe3de90ff3e1b8be9fbd428acad827d2c9615f43997384621d309e2a415af5e95cc2ff1c9ff471d847b67ce0c440b5cf8459ced90b3f207c3214e0049ca2e2a5c7a7573fff644b6f54e878e448f09b6c0e3ad4ac8a6a615a4bc07365b3057a153643e88bd80c3782e85d5230687eee0ff72d359306f0a1c3971f245c04624f8fc3614663ea6e73b7e109782811ad959a454d6d40b06109edaa2e96ce19f366766318cd2db87261770016bdf40866d53a93478af29377a2133ac0ea95b9c45db53b7d18bb237324a0cebbaf0974a31e0e8ad99541d0551e496a85d920ba7d08a0d2970bb706340d697ecb9f2237586d4d6512c51398be97965b30292840a38d1ba8276113c3640bfc64ce49fb79331df761aa295de9ebcbc502a2d10315a22816229500215cd8b8a5d1e895c5f1a0e93d73a9d482f921f926d58e9d487ffdd61a99548b25658dbf0bd179299904314a2584ada85511b202ef4ad4f917fab0c005105d1aa29d978b24e8d77e08a460f33d4dec3b237d09a23cd56ee7e0de68f4fde9f678943a5b99ed72c4bfd16e8d13f1266c58614ae5149d14290a6ef48db4c70d3499206178ccabd4e35361cbbc367485e4285820f771da9b6c8fd1f0cbc7cd8279d40d87267afc97741a3bad0837f4f3f65b964212121a9f0921d547e552b1f202b5df7441651ac33977a89e356db619dd72e9b6b108cea8fda5e4cc59b6d782138d1f8f0428ef70afe83790b473085f3f20b4e46869149316526185d60993fff6cf4857e678a4dffd94ef06892884fc7ca7f888ebbfc42b5cb2ef5f9d72028d1af2529594e69131a23f6632c4c2f683361322c30459c285efbf77f2f676c6b17fc66e82ed5c661ed6df5e31b5ee6307ef4b070dcdabd991d0cc357d0f55b1895acb2cba09a7d756715e0ffeac34dad0522b873d8b0e16f2fd9cb2497e727b1eecb6a71fe75735039864fd9b7250b062d942357bc7385d66829652c887bbdb41afb157697ff9c6e26dc6f17f075b5c60a854db5dea9ac78a4cbe13fd2a8346ad80ca65549dc30362c8efdca35f3c7bcbd678ed12074a52517d2bc3f168360f679d8ae1c18c2e7ce5b0a613559f3216ccae63b8e3e7eff21bb6ca0e9d7f426a2857cde642a177d20e57a31e731e68cce25d9d8ef6ebf353697687e939e324cd27de647f802ae0afaecc3f2822b491e58bf0ad56cc8d903de0b6cbd2a31e209191c1845528f9172786778f67cc8547f9c4cda479f27b2011bc9a685b9ebb916e957d91fef5e0e552bd6518ac50cd0fb25002e20437a5eb1ef7e889ad217f260a3fa0fc0b3f0426a16f171934798e16df4e0c7141a45ba59d2207a2e3c580acec01d1269171b0700f2baea566dc9a0e785c7c1b60a2f3135ef9ec66c66b0fb97bcd95561a7493216444bf08c76e3ab9415eaadc1ce572c4615cf88f94a4d41e9cc67f2c7853b8895c3a4c22192f88ed1f7a5f70dd902eaad33b8f6885ec2e61bf0884695ebc136c67cbd6ef059c6dc4e750af1670b788f15d8e9ff5e41bed23d09b9239ca783a85be32111a9daa4926e6952ca2b17b12aeffbb74ac74ebe23b4ee52045b43a0f742bf96eae2716cd186b8d43e482abb7fd40a56d509b166c703b5d86117968a1d194ab40161e8bb9c1dc3494a7eb56b880453fc234803368f9bc4fed0761c136f0d12bb0855893b5a2d1868a5ed63328ac20903a1468c8cb2a25a247da6313da6aaa4b6028f72ad4ec2f449153b0d83069a397ca112ed1819721f0c4303b460d6c2156b3f9c39cdb88f7e5f51c717089e387697a91e8f9c0ba711e0c99aa6b83f0d2e4f4c80bfdbc4699a223c5d30f4f5ac03929ca579714f7852275fc1012d243c3c0c9ff6c27d1c7a2b1414b4ef8a245ce4cd775ec23ac0854e34774f4b5031718f12379e212770b0b4732058de22c41ce6dc483561b26b11b342575751b9fa2ae65bece47b3a44e4cbe0fa4af7fedf9d7e8ff62a010070dda3f953de6904e4734a2c8951fd3c227882e384132229519f59c40ee97c962cef7ad21452801479eba517911ade70bed4843909728783eae9e0dfeff7e9dbad134e9e3e82b754700d530c6dda680edced275db538eb1ed999f799aa7b3a9b263838fa37965f95b2be3900fd5fc7ceef0a2261e5d172960f3d2ce3d20013a490f2380271c907fbf880f2ed74409f90f4d3d964dad0338d57eb891584451253043468e4c55dbf6ef18600e680be582e5589adc432f0a2401e0edb467b2aa1f58db2c2cc1260ad46c918abc2bc8edc0d05e3a2262b0b012a7191326638e1fe241c12df0672f8a8367fa3d9b677b67b4d6121d88150c43c0f0e543b37d5a9e9d6af0ff93c4bcb7c107d2a71e39f98c5bb1d1a228a8305ab0e51294bfccc1512e213dd56d870dd61e26250a2b352815d5499120baf54eb83bfc286fb7dcbe13f0ed26c2db6b5727867c9c1f93</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\archives\351b7a85.html" rel="bookmark">永续合约套利 - 转载</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>cslzhl
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://cslzhl.github.io/archives/9060a5db.html" title="ftx量化空间">https://cslzhl.github.io/archives/9060a5db.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%87%8F%E5%8C%96/" rel="tag"><i class="fa fa-tag"></i> 量化</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/archives/8c962b5c.html" rel="prev" title="pytorch loss function 总结">
+      <i class="fa fa-chevron-left"></i> pytorch loss function 总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/archives/5a3c8d60.html" rel="next" title="缺陷预测-软件度量">
+      缺陷预测-软件度量 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="cslzhl"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">cslzhl</p>
+  <div class="site-description" itemprop="description">希望每天都能进步一点点</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cslzhl" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cslzhl" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:cslzhl@gmail.com" title="E-Mail → mailto:cslzhl@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+<div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=724495&auto=1&height=66"></iframe>
+</div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cslzhl</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">39k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">36 分钟</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4NfrqYJk17yimAmHRXqCFPLU-gzGzoHsz',
+      appKey     : 'qN5UvamzpcvS0LAKTc887yqG',
+      placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
+</body>
+</html>
