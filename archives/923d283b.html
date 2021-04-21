@@ -308,16 +308,9 @@
         <p>首先，查看ubuntu版本可以用下面的指令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;proc&#x2F;version</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-
 <h1 id="使用conda安装"><a href="#使用conda安装" class="headerlink" title="使用conda安装"></a>使用conda安装</h1><p>这是最简洁的安装方式</p>
-<p>安装tensorflow-gpu</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tf-gpu tensorflow-gpu</span><br><span class="line">conda activate tf-gpu</span><br></pre></td></tr></table></figure>
-<p>安装pytorch</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch&#x3D;&#x3D;1.4.0 torchvision&#x3D;&#x3D;0.5.0 cudatoolkit&#x3D;10.1 -c pytorch</span><br><span class="line"># or</span><br><span class="line">conda install pytorch torchvision -c pytorch</span><br></pre></td></tr></table></figure>
-<p>查看cuda版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>之后内容废弃</strong></p>
+<p>安装tensorflow-gpu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tf-gpu tensorflow-gpu</span><br><span class="line">conda activate tf-gpu</span><br></pre></td></tr></table></figure><br>安装pytorch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch&#x3D;&#x3D;1.4.0 torchvision&#x3D;&#x3D;0.5.0 cudatoolkit&#x3D;10.1 -c pytorch</span><br><span class="line"># or</span><br><span class="line">conda install pytorch torchvision -c pytorch</span><br></pre></td></tr></table></figure><br>查看cuda版本</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure></h2><p><strong>之后内容废弃</strong></p>
 <h1 id="ubuntu18-04安装tensorflow"><a href="#ubuntu18-04安装tensorflow" class="headerlink" title="ubuntu18.04安装tensorflow"></a>ubuntu18.04安装tensorflow</h1><p>安装tensorflow，参考<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/gpu">https://www.tensorflow.org/install/gpu</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># Add NVIDIA package repositories</span><br><span class="line">wget https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;cuda&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F;cuda-ubuntu1804.pin</span><br><span class="line">sudo mv cuda-ubuntu1804.pin &#x2F;etc&#x2F;apt&#x2F;preferences.d&#x2F;cuda-repository-pin-600</span><br><span class="line">sudo apt-key adv --fetch-keys https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;cuda&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F;7fa2af80.pub</span><br><span class="line">sudo add-apt-repository &quot;deb https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;cuda&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F; &#x2F;&quot;</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">wget http:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;machine-learning&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F;nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</span><br><span class="line"></span><br><span class="line">sudo apt install .&#x2F;nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># Install NVIDIA driver</span><br><span class="line">sudo apt-get install --no-install-recommends nvidia-driver-450</span><br><span class="line"># Reboot. Check that GPUs are visible using the command: nvidia-smi</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;developer.download.nvidia.com&#x2F;compute&#x2F;machine-learning&#x2F;repos&#x2F;ubuntu1804&#x2F;x86_64&#x2F;libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</span><br><span class="line">sudo apt install .&#x2F;libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># Install development and runtime libraries (~4GB)</span><br><span class="line">sudo apt-get install --no-install-recommends \</span><br><span class="line">    cuda-11-0 \</span><br><span class="line">    libcudnn8&#x3D;8.0.4.30-1+cuda11.0  \</span><br><span class="line">    libcudnn8-dev&#x3D;8.0.4.30-1+cuda11.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Install TensorRT. Requires that libcudnn8 is installed above.</span><br><span class="line">sudo apt-get install -y --no-install-recommends libnvinfer7&#x3D;7.1.3-1+cuda11.0 \</span><br><span class="line">    libnvinfer-dev&#x3D;7.1.3-1+cuda11.0 \</span><br><span class="line">    libnvinfer-plugin7&#x3D;7.1.3-1+cuda11.0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="匹配关系"><a href="#匹配关系" class="headerlink" title="匹配关系"></a>匹配关系</h2><p>tensorflow匹配关系见网址：<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source_windows">https://www.tensorflow.org/install/source_windows</a></p>
@@ -325,6 +318,7 @@
 <h1 id="ubuntu18-04安装pytorch"><a href="#ubuntu18-04安装pytorch" class="headerlink" title="ubuntu18.04安装pytorch"></a>ubuntu18.04安装pytorch</h1><p>在安装好nvidia驱动的基础上，可以直接安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision -c pytorch</span><br></pre></td></tr></table></figure>
 <h2 id="匹配关系-1"><a href="#匹配关系-1" class="headerlink" title="匹配关系"></a>匹配关系</h2><p>这里是pytorch和cudatoolkit版本对应关系：<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -332,7 +326,8 @@
 <th>可用PyTorch版本</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>7.5</td>
 <td>0.4.1 ，0.3.0， 0.2.0，0.1.12-0.1.6</td>
 </tr>
@@ -364,13 +359,13 @@
 <td>11.0</td>
 <td>1.7.0</td>
 </tr>
-</tbody></table>
-<h2 id="pytorch-GPU测试代码"><a href="#pytorch-GPU测试代码" class="headerlink" title="pytorch GPU测试代码"></a>pytorch GPU测试代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">print(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="Nvidia驱动、cuda和cuDNN安装"><a href="#Nvidia驱动、cuda和cuDNN安装" class="headerlink" title="Nvidia驱动、cuda和cuDNN安装"></a>Nvidia驱动、cuda和cuDNN安装</h1><h2 id="NVIDIA-驱动安装"><a href="#NVIDIA-驱动安装" class="headerlink" title="NVIDIA 驱动安装"></a>NVIDIA 驱动安装</h2><h2 id="CUDA安装"><a href="#CUDA安装" class="headerlink" title="CUDA安装"></a>CUDA安装</h2><p>首先贴一张CUDA和驱动版本的对应表，具体可见<a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#abstract">https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#abstract</a>。<br><img src="http://ww1.sinaimg.cn/large/006ltHaXgy1gns49hgbu1j315m0rqaf4.jpg" alt="QQ20210218-233600@2x.png"></p>
+</tbody>
+</table>
+</div>
+<h2 id="pytorch-GPU测试代码"><a href="#pytorch-GPU测试代码" class="headerlink" title="pytorch GPU测试代码"></a>pytorch GPU测试代码</h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">print(torch.cuda.is_available())</span><br></pre></td></tr></table></figure></h2><h1 id="Nvidia驱动、cuda和cuDNN安装"><a href="#Nvidia驱动、cuda和cuDNN安装" class="headerlink" title="Nvidia驱动、cuda和cuDNN安装"></a>Nvidia驱动、cuda和cuDNN安装</h1><h2 id="NVIDIA-驱动安装"><a href="#NVIDIA-驱动安装" class="headerlink" title="NVIDIA 驱动安装"></a>NVIDIA 驱动安装</h2><h2 id="CUDA安装"><a href="#CUDA安装" class="headerlink" title="CUDA安装"></a>CUDA安装</h2><p>首先贴一张CUDA和驱动版本的对应表，具体可见<a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#abstract">https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#abstract</a>。<br><img src="http://ww1.sinaimg.cn/large/006ltHaXgy1gns49hgbu1j315m0rqaf4.jpg" alt="QQ20210218-233600@2x.png"></p>
 <p>去官网上 下载和驱动对应的cuda文件<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">https://developer.nvidia.com/cuda-toolkit-archive</a>，需要注册一个账号。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/carle-09/p/11252814.html">Ubuntu系统—安NVIDIA 驱动后  CUDA+cuDNN 安装</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/carle-09/p/11252814.html">Ubuntu系统—-安NVIDIA 驱动后  CUDA+cuDNN 安装</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Wanggcong/p/12625540.html">pytorch版本，cuda版本，系统cuda版本查询和对应关系</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sunshe35/articles/12808780.html">彻底搞定tensorflow-GPU环境(史上最全)</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/52498335">conda安装tensorflow和pytorch</a></li>
@@ -488,7 +483,13 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8conda%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">使用conda安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu18-04%E5%AE%89%E8%A3%85tensorflow"><span class="nav-number">2.</span> <span class="nav-text">ubuntu18.04安装tensorflow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E5%85%B3%E7%B3%BB"><span class="nav-number">2.1.</span> <span class="nav-text">匹配关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tensroflow-GPU%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">tensroflow GPU测试代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu18-04%E5%AE%89%E8%A3%85pytorch"><span class="nav-number">3.</span> <span class="nav-text">ubuntu18.04安装pytorch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E5%85%B3%E7%B3%BB-1"><span class="nav-number">3.1.</span> <span class="nav-text">匹配关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pytorch-GPU%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">pytorch GPU测试代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nvidia%E9%A9%B1%E5%8A%A8%E3%80%81cuda%E5%92%8CcuDNN%E5%AE%89%E8%A3%85"><span class="nav-number">4.</span> <span class="nav-text">Nvidia驱动、cuda和cuDNN安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NVIDIA-%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="nav-number">4.1.</span> <span class="nav-text">NVIDIA 驱动安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDA%E5%AE%89%E8%A3%85"><span class="nav-number">4.2.</span> <span class="nav-text">CUDA安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8conda%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">使用conda安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">1
+conda list
+</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu18-04%E5%AE%89%E8%A3%85tensorflow"><span class="nav-number">2.</span> <span class="nav-text">ubuntu18.04安装tensorflow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E5%85%B3%E7%B3%BB"><span class="nav-number">2.1.</span> <span class="nav-text">匹配关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tensroflow-GPU%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">tensroflow GPU测试代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu18-04%E5%AE%89%E8%A3%85pytorch"><span class="nav-number">3.</span> <span class="nav-text">ubuntu18.04安装pytorch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E5%85%B3%E7%B3%BB-1"><span class="nav-number">3.1.</span> <span class="nav-text">匹配关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pytorch-GPU%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">pytorch GPU测试代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">3.3.</span> <span class="nav-text">1
+2
+import torch
+print(torch.cuda.is_available())
+</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nvidia%E9%A9%B1%E5%8A%A8%E3%80%81cuda%E5%92%8CcuDNN%E5%AE%89%E8%A3%85"><span class="nav-number">4.</span> <span class="nav-text">Nvidia驱动、cuda和cuDNN安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NVIDIA-%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="nav-number">4.1.</span> <span class="nav-text">NVIDIA 驱动安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDA%E5%AE%89%E8%A3%85"><span class="nav-number">4.2.</span> <span class="nav-text">CUDA安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -568,12 +569,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">56k</span>
+    <span title="站点总字数">63k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">51 分钟</span>
+    <span title="站点阅读时长">57 分钟</span>
 </div>
 
         

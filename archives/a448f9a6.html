@@ -284,7 +284,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>594</span>
+              <span>595</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -308,8 +308,8 @@
 <h2 id="方法2-Parallel"><a href="#方法2-Parallel" class="headerlink" title="方法2: Parallel"></a>方法2: Parallel</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> joblib <span class="keyword">import</span> Parallel, delayed, cpu_count</span><br><span class="line">batches = Parallel(n_jobs=cpu_count() - <span class="number">1</span>)(</span><br><span class="line">    delayed(extract)(i, br, bug_reports, java_src_dict)</span><br><span class="line">    <span class="keyword">for</span> i, br <span class="keyword">in</span> <span class="built_in">enumerate</span>(bug_reports)</span><br><span class="line">)</span><br><span class="line">features = [row <span class="keyword">for</span> batch <span class="keyword">in</span> batches <span class="keyword">for</span> row <span class="keyword">in</span> batch]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="方法3-pathos-pools"><a href="#方法3-pathos-pools" class="headerlink" title="方法3: pathos.pools"></a>方法3: pathos.pools</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pathos.pools <span class="keyword">as</span> pp</span><br></pre></td></tr></table></figure>
 <h2 id="方法4-numba"><a href="#方法4-numba" class="headerlink" title="方法4: numba"></a>方法4: numba</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.8/library/multiprocessing.html">multiprocessing — 基于进程的并行</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42001089/article/details/88843152?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3.control">python 并行化：加快数据的处理</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.8/library/multiprocessing.html">multiprocessing —- 基于进程的并行</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42001089/article/details/88843152?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3.control">python 并行化：加快数据的处理</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/46378282">python并行计算（上）：pathos模块</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/69d9d7e37bc5">加速python运行-numba</a></li>
 </ol>
@@ -323,19 +323,19 @@
   <div class="popular-posts-header">文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\archives\f82593e0.html" rel="bookmark">python数据的存储和持久化操作</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\1012268b.html" rel="bookmark">python执行cmd命令</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\13c6676c.html" rel="bookmark">python数组扩充</a></div>
+      <div class="popular-posts-title"><a href="\archives\bcd3a59.html" rel="bookmark">ptyhon数组堆叠</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\af7b2e2a.html" rel="bookmark">python标准化方法</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\83a60a30.html" rel="bookmark">python添加进度条</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\f8cf55af.html" rel="bookmark">python相似度计算</a></div>
+      <div class="popular-posts-title"><a href="\archives\13c6676c.html" rel="bookmark">python数组扩充</a></div>
     </li>
   </ul>
 
@@ -515,12 +515,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">56k</span>
+    <span title="站点总字数">63k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">51 分钟</span>
+    <span title="站点阅读时长">57 分钟</span>
 </div>
 
         
