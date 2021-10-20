@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"cslzhl.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="维度变换pytorch维度变换常用函数有view，unsqueeze，squeeze 12&gt;&gt;&gt; va&#x3D;torch.rand(4,1,28,28)&gt;&gt;&gt; ve&#x3D;va.unsqueeze(-1)#在最后一维后面增加一个维度 数据合并123456&gt;&gt;&gt; import torch&gt;&gt;&gt; A&#x3D;torch.ones(2,3) #2x3的">
+  <meta name="description" content="维度变换pytorch维度变换常用函数有view，unsqueeze，squeeze 12&gt;&gt;&gt; va&#x3D;torch.rand(4,1,28,28)&gt;&gt;&gt; ve&#x3D;va.unsqueeze(-1)#在最后一维后面增加一个维度 数据合并1234567&gt;&gt;&gt; import torch&gt;&gt;&gt; A&#x3D;torch.ones(2,3) #2x3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch维度变换">
 <meta property="og:url" content="https://cslzhl.github.io/archives/fb2b1394.html">
 <meta property="og:site_name" content="cslzhl的博客">
-<meta property="og:description" content="维度变换pytorch维度变换常用函数有view，unsqueeze，squeeze 12&gt;&gt;&gt; va&#x3D;torch.rand(4,1,28,28)&gt;&gt;&gt; ve&#x3D;va.unsqueeze(-1)#在最后一维后面增加一个维度 数据合并123456&gt;&gt;&gt; import torch&gt;&gt;&gt; A&#x3D;torch.ones(2,3) #2x3的">
+<meta property="og:description" content="维度变换pytorch维度变换常用函数有view，unsqueeze，squeeze 12&gt;&gt;&gt; va&#x3D;torch.rand(4,1,28,28)&gt;&gt;&gt; ve&#x3D;va.unsqueeze(-1)#在最后一维后面增加一个维度 数据合并1234567&gt;&gt;&gt; import torch&gt;&gt;&gt; A&#x3D;torch.ones(2,3) #2x3">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-29T11:51:10.000Z">
-<meta property="article:modified_time" content="2021-07-28T06:34:06.700Z">
+<meta property="article:modified_time" content="2021-10-14T06:43:55.748Z">
 <meta property="article:author" content="cslzhl">
 <meta property="article:tag" content="pytorch">
 <meta property="article:tag" content="python">
@@ -124,17 +124,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">45</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">15</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a>
 
   </li>
         <li class="menu-item menu-item-movies">
@@ -238,7 +238,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-28 14:34:06" itemprop="dateModified" datetime="2021-07-28T14:34:06+08:00">2021-07-28</time>
+                <time title="修改时间：2021-10-14 14:43:55" itemprop="dateModified" datetime="2021-10-14T14:43:55+08:00">2021-10-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,7 +288,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>401</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -309,9 +309,11 @@
       
         <h1 id="维度变换"><a href="#维度变换" class="headerlink" title="维度变换"></a>维度变换</h1><p>pytorch维度变换常用函数有view，unsqueeze，squeeze</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>va=torch.rand(<span class="number">4</span>,<span class="number">1</span>,<span class="number">28</span>,<span class="number">28</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ve=va.unsqueeze(-<span class="number">1</span>)<span class="comment">#在最后一维后面增加一个维度</span></span><br></pre></td></tr></table></figure>
-<h1 id="数据合并"><a href="#数据合并" class="headerlink" title="数据合并"></a>数据合并</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A=torch.ones(<span class="number">2</span>,<span class="number">3</span>) <span class="comment">#2x3的张量（矩阵）    </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>B=<span class="number">2</span>*torch.ones(<span class="number">4</span>,<span class="number">3</span>)<span class="comment">#4x3的张量（矩阵）   </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>C=torch.cat((A,B),<span class="number">0</span>)<span class="comment">#按维数0（行）拼接 </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>D=<span class="number">2</span>*torch.ones(<span class="number">2</span>,<span class="number">4</span>) <span class="comment">#2x4的张量（矩阵）</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>C=torch.cat((A,D),<span class="number">1</span>)<span class="comment">#按维数1（列）拼接</span></span><br></pre></td></tr></table></figure>
+<h1 id="数据合并"><a href="#数据合并" class="headerlink" title="数据合并"></a>数据合并</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A=torch.ones(<span class="number">2</span>,<span class="number">3</span>) <span class="comment">#2x3的张量（矩阵）    </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>B=<span class="number">2</span>*torch.ones(<span class="number">4</span>,<span class="number">3</span>)<span class="comment">#4x3的张量（矩阵）   </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>C=torch.cat((A,B),<span class="number">0</span>)<span class="comment">#按维数0（行）拼接 </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>E=torch.cat([A,B,C],axis=<span class="number">0</span>)<span class="comment">#按维数0（行）拼接 </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>D=<span class="number">2</span>*torch.ones(<span class="number">2</span>,<span class="number">4</span>) <span class="comment">#2x4的张量（矩阵）</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>C=torch.cat((A,D),<span class="number">1</span>)<span class="comment">#按维数1（列）拼接</span></span><br></pre></td></tr></table></figure>
+<h1 id="常用操作对维度的影响"><a href="#常用操作对维度的影响" class="headerlink" title="常用操作对维度的影响"></a>常用操作对维度的影响</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">x=[</span><br><span class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]],</span><br><span class="line">[[<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>],[<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>],[<span class="number">21</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">24</span>]]</span><br><span class="line">]</span><br><span class="line">x=torch.tensor(x).<span class="built_in">float</span>()</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">print(<span class="string">&quot;shape of x:&quot;</span>)  <span class="comment">##[2,3,4]                                                                      </span></span><br><span class="line">print(x.shape)                                                                                   </span><br><span class="line"><span class="comment">#</span></span><br><span class="line">print(<span class="string">&quot;shape of x.mean(axis=0,keepdim=True):&quot;</span>)          <span class="comment">#[1, 3, 4]</span></span><br><span class="line">print(x.mean(axis=<span class="number">0</span>,keepdim=<span class="literal">True</span>).shape)                       </span><br><span class="line"><span class="comment">#[[[ 7.,  8.,  9., 10.],</span></span><br><span class="line"><span class="comment">#         [11., 12., 13., 14.],</span></span><br><span class="line"><span class="comment">#         [15., 16., 17., 18.]]]</span></span><br><span class="line">print(<span class="string">&quot;shape of x.mean(axis=0,keepdim=False):&quot;</span>)         <span class="comment">#[3, 4]</span></span><br><span class="line">print(x.mean(axis=<span class="number">0</span>,keepdim=<span class="literal">False</span>).shape)                     </span><br><span class="line"><span class="comment">#</span></span><br><span class="line">print(<span class="string">&quot;shape of x.mean(axis=1,keepdim=True):&quot;</span>)          <span class="comment">#[2, 1, 4]</span></span><br><span class="line">print(x.mean(axis=<span class="number">1</span>,keepdim=<span class="literal">True</span>).shape)                      </span><br><span class="line"><span class="comment">#</span></span><br><span class="line">print(<span class="string">&quot;shape of x.mean(axis=1,keepdim=False):&quot;</span>)         <span class="comment">#[2, 4]</span></span><br><span class="line">print(x.mean(axis=<span class="number">1</span>,keepdim=<span class="literal">False</span>).shape)                    </span><br><span class="line"><span class="comment">#[[ 5.,  6.,  7.,  8.],</span></span><br><span class="line"><span class="comment">#        [17., 18., 19., 20.]]</span></span><br><span class="line">print(<span class="string">&quot;shape of x.mean(axis=2,keepdim=True):&quot;</span>)          <span class="comment">#[2, 3, 1]</span></span><br><span class="line">print(x.mean(axis=<span class="number">2</span>,keepdim=<span class="literal">True</span>).shape)                     </span><br><span class="line"><span class="comment">#</span></span><br><span class="line">print(<span class="string">&quot;shape of x.mean(axis=2,keepdim=False):&quot;</span>)         <span class="comment">#[2, 3]</span></span><br><span class="line">print(x.mean(axis=<span class="number">2</span>,keepdim=<span class="literal">False</span>).shape)</span><br><span class="line"><span class="comment">#[[ 2.5000,  6.5000, 10.5000],</span></span><br><span class="line"><span class="comment">#        [14.5000, 18.5000, 22.5000]]</span></span><br></pre></td></tr></table></figure>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30972263/article/details/113680673">pytorch增加一维_Pytorch学习笔记3：维度变换测试代码</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36810398/article/details/104845401">pytorch中tensor.mean(axis, keepdim)参数理解小实验</a></li>
 </ol>
 
     </div>
@@ -435,7 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%B4%E5%BA%A6%E5%8F%98%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">维度变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6"><span class="nav-number">2.</span> <span class="nav-text">数据合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%B4%E5%BA%A6%E5%8F%98%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">维度变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6"><span class="nav-number">2.</span> <span class="nav-text">数据合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%AF%B9%E7%BB%B4%E5%BA%A6%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">3.</span> <span class="nav-text">常用操作对维度的影响</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -451,20 +453,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -515,12 +517,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">70k</span>
+    <span title="站点总字数">82k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:04</span>
+    <span title="站点阅读时长">1:14</span>
 </div>
 
         

@@ -28,7 +28,7 @@
 <meta property="og:description" content="数据类型 字符串类型：object 整数类型：Int64，Int32，Int16, Int8  无符号整数：UInt64，UInt32，UInt16, UInt8  浮点数类型：float64，float32 日期和时间类型：datetime64[ns]、datetime64[ns, tz]、timedelta[ns] 布尔类型：bool  DataFrame列定义123&gt;&gt;&gt;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-02T08:47:37.000Z">
-<meta property="article:modified_time" content="2021-07-28T06:33:10.810Z">
+<meta property="article:modified_time" content="2021-10-16T15:54:42.956Z">
 <meta property="article:author" content="cslzhl">
 <meta property="article:tag" content="pandas">
 <meta name="twitter:card" content="summary">
@@ -123,17 +123,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">45</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">15</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a>
 
   </li>
         <li class="menu-item menu-item-movies">
@@ -237,7 +237,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-28 14:33:10" itemprop="dateModified" datetime="2021-07-28T14:33:10+08:00">2021-07-28</time>
+                <time title="修改时间：2021-10-16 23:54:42" itemprop="dateModified" datetime="2021-10-16T23:54:42+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,14 +287,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -318,9 +318,11 @@
 <h2 id="DataFrame插入行"><a href="#DataFrame插入行" class="headerlink" title="DataFrame插入行"></a>DataFrame插入行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    df.loc[i] = [randint(-<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df = df.append(&#123;<span class="string">&#x27;absolute_name&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;version&#x27;</span>:<span class="number">2</span>,<span class="string">&#x27;all_content&#x27;</span>:<span class="number">3</span>&#125;,ignore_index=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="DataFrame插入列"><a href="#DataFrame插入列" class="headerlink" title="DataFrame插入列"></a>DataFrame插入列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># 在数据框最后加上score一列，元素值分别为：80，98，67，90</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df1[<span class="string">&#x27;score&#x27;</span>]=[<span class="number">80</span>,<span class="number">98</span>,<span class="number">67</span>,<span class="number">90</span>,<span class="number">50</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    df.loc[i] = [randint(-<span class="number">1</span>,<span class="number">1</span>) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.append([[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>col_name.insert(<span class="number">2</span>,<span class="string">&#x27;city&#x27;</span>)                      <span class="comment"># 在列索引为2的位置插入一列,列名为:city，刚插入时不会有值，整列都是NaN</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df1=df1.reindex(columns=col_name)              <span class="comment"># DataFrame.reindex() 对原行/列索引重新构建索引值</span></span><br></pre></td></tr></table></figure>
 <h2 id="修改值"><a href="#修改值" class="headerlink" title="修改值"></a>修改值</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># loc和iloc 可以更换单行、单列、多行、多列的值,可直接添加列</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df1.loc[<span class="number">0</span>,<span class="string">&#x27;age&#x27;</span>]=<span class="number">25</span>      <span class="comment"># 思路：先用loc找到要更改的值，再用赋值（=）的方法实现更换值</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df1.iloc[<span class="number">0</span>,<span class="number">2</span>]=<span class="number">25</span>         <span class="comment"># iloc：用索引位置来查找</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># at 、iat只能更换单个值</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df1.at[<span class="number">0</span>,<span class="string">&#x27;age&#x27;</span>]=<span class="number">25</span>      <span class="comment"># iat 用来取某个单值,参数只能用数字索引</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df1.iat[<span class="number">0</span>,<span class="number">2</span>]=<span class="number">25</span>         <span class="comment"># at 用来取某个单值,参数只能用index和columns索引名称</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(df1)</span><br></pre></td></tr></table></figure>
+<h2 id="读取值"><a href="#读取值" class="headerlink" title="读取值"></a>读取值</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ix可以用数字索引，也可以用index和column索引</span></span><br><span class="line">df.ix[<span class="number">0</span>]<span class="comment">#取第0行</span></span><br><span class="line">df.ix[<span class="number">0</span>:<span class="number">1</span>]<span class="comment">#取第0行</span></span><br><span class="line">df.ix[<span class="string">&#x27;one&#x27;</span>:<span class="string">&#x27;two&#x27;</span>]<span class="comment">#取one、two行</span></span><br><span class="line">df.ix[<span class="number">0</span>:<span class="number">2</span>,<span class="number">0</span>]<span class="comment">#取第0、1行，第0列</span></span><br><span class="line">df.ix[<span class="number">0</span>:<span class="number">1</span>,<span class="string">&#x27;a&#x27;</span>]<span class="comment">#取第0行，a列</span></span><br><span class="line">df.ix[<span class="number">0</span>:<span class="number">2</span>,<span class="string">&#x27;a&#x27;</span>:<span class="string">&#x27;c&#x27;</span>]<span class="comment">#取第0、1行，abc列</span></span><br><span class="line">df.ix[<span class="string">&#x27;one&#x27;</span>:<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;a&#x27;</span>:<span class="string">&#x27;c&#x27;</span>]<span class="comment">#取one、two行，abc列</span></span><br><span class="line">df.ix[<span class="number">0</span>:<span class="number">2</span>,<span class="number">0</span>:<span class="number">1</span>]<span class="comment">#取第0、1行，第0列</span></span><br><span class="line">df.ix[<span class="number">0</span>:<span class="number">2</span>,<span class="number">0</span>:<span class="number">2</span>]<span class="comment">#取第0、1行，第0、1列</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#loc只能通过index和columns来取，不能用数字</span></span><br><span class="line">df.loc[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;a&#x27;</span>]<span class="comment">#one行，a列</span></span><br><span class="line">df.loc[<span class="string">&#x27;one&#x27;</span>:<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;a&#x27;</span>]<span class="comment">#one到two行，a列</span></span><br><span class="line">df.loc[<span class="string">&#x27;one&#x27;</span>:<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;a&#x27;</span>:<span class="string">&#x27;c&#x27;</span>]<span class="comment">#one到two行，a到c列</span></span><br><span class="line">df.loc[<span class="string">&#x27;one&#x27;</span>:<span class="string">&#x27;two&#x27;</span>,[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;c&#x27;</span>]]<span class="comment">#one到two行，ac列</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#iloc只能用数字索引，不能用索引名</span></span><br><span class="line">df.iloc[<span class="number">0</span>:<span class="number">2</span>]<span class="comment">#前2行</span></span><br><span class="line">df.iloc[<span class="number">0</span>]<span class="comment">#第0行</span></span><br><span class="line">df.iloc[<span class="number">0</span>:<span class="number">2</span>,<span class="number">0</span>:<span class="number">2</span>]<span class="comment">#0、1行，0、1列</span></span><br><span class="line">df.iloc[[<span class="number">0</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]<span class="comment">#第0、2行，1、2、3列</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#iat取某个单值,只能数字索引</span></span><br><span class="line">df.iat[<span class="number">1</span>,<span class="number">1</span>]<span class="comment">#第1行，1列</span></span><br><span class="line"><span class="comment">#at取某个单值,只能index和columns索引</span></span><br><span class="line">df.at[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;a&#x27;</span>]<span class="comment">#one行，a列</span></span><br></pre></td></tr></table></figure>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_30353259/article/details/83818646">pandas apply应用并行进程，多核加快运行速度</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/100064394">Pandas教程 | 数据处理三板斧——map、apply、applymap详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nxf-rabbit75/p/10105271.html">pandas取dataframe特定行/列</a></li>
 </ol>
 
     </div>
@@ -431,7 +433,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DataFrame%E5%88%97%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">DataFrame列定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataFrame%E6%8F%92%E5%85%A5%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">DataFrame插入行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataFrame%E6%8F%92%E5%85%A5%E5%88%97"><span class="nav-number">2.2.</span> <span class="nav-text">DataFrame插入列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%80%BC"><span class="nav-number">2.3.</span> <span class="nav-text">修改值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DataFrame%E5%88%97%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">DataFrame列定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataFrame%E6%8F%92%E5%85%A5%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">DataFrame插入行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataFrame%E6%8F%92%E5%85%A5%E5%88%97"><span class="nav-number">2.2.</span> <span class="nav-text">DataFrame插入列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%80%BC"><span class="nav-number">2.3.</span> <span class="nav-text">修改值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E5%80%BC"><span class="nav-number">2.4.</span> <span class="nav-text">读取值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -447,20 +449,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -511,12 +513,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">70k</span>
+    <span title="站点总字数">82k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:04</span>
+    <span title="站点阅读时长">1:14</span>
 </div>
 
         
