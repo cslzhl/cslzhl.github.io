@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">45</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">50</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">55</span></a>
 
   </li>
         <li class="menu-item menu-item-movies">
@@ -199,6 +199,1064 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/8c4d4d4a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/8c4d4d4a.html" class="post-title-link" itemprop="url">pytorch入门学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-28 09:31:30" itemprop="dateCreated datePublished" datetime="2021-03-28T09:31:30+08:00">2021-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 20:01:08" itemprop="dateModified" datetime="2021-04-15T20:01:08+08:00">2021-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/8c4d4d4a.html" class="post-meta-item leancloud_visitors" data-flag-title="pytorch入门学习" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/8c4d4d4a.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/8c4d4d4a.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>590</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Tensors"><a href="#Tensors" class="headerlink" title="Tensors"></a>Tensors</h1><ul>
+<li>从数据中生成<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = [[<span class="number">1</span>, <span class="number">2</span>],[<span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">x_data = torch.tensor(data)</span><br></pre></td></tr></table></figure></li>
+<li>从numpy数组中生成<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np_array = np.array(data)</span><br><span class="line">x_np = torch.from_numpy(np_array)</span><br></pre></td></tr></table></figure></li>
+<li>从其他tensor中生成<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x_ones = torch.ones_like(x_data) <span class="comment"># retains the properties of x_data</span></span><br><span class="line">x_rand = torch.rand_like(x_data, dtype=torch.<span class="built_in">float</span>) <span class="comment"># overrides the datatype of x_data</span></span><br></pre></td></tr></table></figure>
+<h2 id="Tensor的属性"><a href="#Tensor的属性" class="headerlink" title="Tensor的属性"></a>Tensor的属性</h2>Tensor的属性包括shape，datatype和device<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tensor = torch.rand(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">print(<span class="string">f&quot;Shape of tensor: <span class="subst">&#123;tensor.shape&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;Datatype of tensor: <span class="subst">&#123;tensor.dtype&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;Device tensor is stored on: <span class="subst">&#123;tensor.device&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="tensor转numpy"><a href="#tensor转numpy" class="headerlink" title="tensor转numpy"></a>tensor转numpy</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y = x.numpy()</span><br><span class="line">x_np = x.data.cpu().numpy() <span class="comment"># cuda转numpy</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/bcd3a59.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/bcd3a59.html" class="post-title-link" itemprop="url">ptyhon数组堆叠</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-26 11:27:18" itemprop="dateCreated datePublished" datetime="2021-03-26T11:27:18+08:00">2021-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-20 22:45:38" itemprop="dateModified" datetime="2021-04-20T22:45:38+08:00">2021-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/bcd3a59.html" class="post-meta-item leancloud_visitors" data-flag-title="ptyhon数组堆叠" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/bcd3a59.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/bcd3a59.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>常见的方法有torch.cat,torch.stack,np.cat,np.stack<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/bcd3a59.html" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/7a335556.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/7a335556.html" class="post-title-link" itemprop="url">Latex使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-23 03:03:10" itemprop="dateCreated datePublished" datetime="2021-03-23T03:03:10+08:00">2021-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-28 10:49:43" itemprop="dateModified" datetime="2021-03-28T10:49:43+08:00">2021-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Latex/" itemprop="url" rel="index"><span itemprop="name">Latex</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/7a335556.html" class="post-meta-item leancloud_visitors" data-flag-title="Latex使用教程" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/7a335556.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/7a335556.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><h2 id="tabincell"><a href="#tabincell" class="headerlink" title="tabincell"></a>tabincell</h2><p>使用方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\tabincell&#123;l&#125;&#123;以方法为顶点，两方法\\引用构成的无向图的连通分支&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="multirow和multicol"><a href="#multirow和multicol" class="headerlink" title="multirow和multicol"></a>multirow和multicol</h2><p>\multirow{nrows}[bigstructs]{width}[fixup]{text}<br>nrows   设定所占用的行数。<br>bigstructs  此为可选项，主要是在你使用了 bigstruct 宏包时使用。<br>width  设定该栏文本的宽度。如果想让 LaTeX 自行决定文本的宽度，则用 * 即可。<br>fixup  此为可选项，主要用来调整文本的垂直位置。<br>text    所要排版的文本。可用 \ 来强迫换行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;tabular&#125;&#123;ccccrc&#125;</span><br><span class="line">  \hline</span><br><span class="line">  \textbf&#123;Datasets&#125; &amp; \textbf&#123;Projects&#125; &amp; \textbf&#123;Level&#125; &amp; \textbf&#123;\#Features&#125; &amp; \textbf&#123;\#Instances&#125; &amp; \textbf&#123;\#Faulty Instances (Percent)&#125; \\\hline %\hline</span><br><span class="line">    %\midrule</span><br><span class="line"></span><br><span class="line">   \multirow&#123;3&#125;&#123;*&#125;&#123;ReLink&#125; &amp; Apache &amp; \multirow&#123;3&#125;&#123;*&#125;&#123;File&#125;  &amp; \multirow&#123;3&#125;&#123;*&#125;&#123;26&#125; &amp; 194 &amp;\ 98 (50.52\%) \\</span><br><span class="line">   &amp; Safe &amp;  &amp;  &amp; 56 &amp;\ 22 (39.29\%) \\</span><br><span class="line">   &amp; ZXing &amp;  &amp;  &amp; 399 &amp; 118 (29.57\%) \\\hline %\hline</span><br><span class="line"></span><br><span class="line">    \multirow&#123;5&#125;&#123;*&#125;&#123;AEEEM&#125; &amp; EQ &amp; \multirow&#123;5&#125;&#123;*&#125;&#123;Class&#125;  &amp; \multirow&#123;5&#125;&#123;*&#125;&#123;61&#125; &amp; 324 &amp; 129 (39.8\%)\ \\</span><br><span class="line">   &amp; JDT &amp;  &amp;  &amp; 997 &amp; 206 (20.7\%) \\</span><br><span class="line">   &amp; LC &amp;  &amp;  &amp; 691 &amp;64 (9.3\%) \\</span><br><span class="line">   &amp; ML &amp;  &amp;  &amp; 1\hspace&#123;0.25ex&#125;862 &amp; 245 (13.2\%) \\</span><br><span class="line">   &amp; PDE &amp;  &amp;  &amp; 1\hspace&#123;0.25ex&#125;497 &amp; 209 (14.0\%) \\\hline</span><br><span class="line">  %\bottomrule</span><br><span class="line">\end&#123;tabular&#125;</span><br></pre></td></tr></table></figure><br>结果图：<br><img src="http://ww1.sinaimg.cn/large/006ltHaXly1gotapwipcsj30pn0ae0ui.jpg" alt="QQ截图20210323033228.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\multicolumn&#123;2&#125;&#123;c&#125;&#123;之前版本&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="表格画虚线"><a href="#表格画虚线" class="headerlink" title="表格画虚线"></a>表格画虚线</h2><p>The arydshln package offers you the \hdashline and \cdashline<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;report&#125;</span><br><span class="line">\usepackage&#123;arydshln&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;tabular&#125;&#123;c:cc&#125;</span><br><span class="line">   column1a &amp; column2a &amp; column3a \\</span><br><span class="line">   column1b &amp; column2b   &amp; column3b\\ \hdashline</span><br><span class="line">   column1c &amp; column2c &amp; column3c \\ \cdashline&#123;1-2&#125;</span><br><span class="line">   column1d &amp; column2d &amp; column3d \\</span><br><span class="line">\end&#123;tabular&#125;</span><br><span class="line"></span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="表格画分开的线段"><a href="#表格画分开的线段" class="headerlink" title="表格画分开的线段"></a>表格画分开的线段</h2><p>使用\cmidrule(r){7-8}</p>
+<h2 id="表格设置行间距列间距"><a href="#表格设置行间距列间距" class="headerlink" title="表格设置行间距列间距"></a>表格设置行间距列间距</h2><p>\renewcommand{\arraystretch}{1.3}%调行距<br>\setlength\tabcolsep{3pt}%调列距</p>
+<h2 id="表格单元格设置背景颜色"><a href="#表格单元格设置背景颜色" class="headerlink" title="表格单元格设置背景颜色"></a>表格单元格设置背景颜色</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;colortbl&#125;</span><br><span class="line"># \rowcolor&#123;颜色&#125;、\columncolor&#123;颜色&#125;、\cellcolor&#123;颜色&#125;</span><br><span class="line">\cellcolor&#123;lightgray&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="文字设置背景色"><a href="#文字设置背景色" class="headerlink" title="文字设置背景色"></a>文字设置背景色</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;color&#125;%可以用于中文</span><br><span class="line">\colorbox&#123;yellow&#125;&#123;yellow background&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="表格单元格排列及长宽设置"><a href="#表格单元格排列及长宽设置" class="headerlink" title="表格单元格排列及长宽设置"></a>表格单元格排列及长宽设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;array&#125;</span><br><span class="line">\begin&#123;tabular&#125;&#123;cp&#123;23em&#125;m&#123;2em&#125;b&#123;2em&#125;&#125;                              </span><br><span class="line">        \hline                                                     </span><br><span class="line">        横向居中&amp;居下&amp;居中&amp;居上\\                                  </span><br><span class="line">        \hline                                                     </span><br><span class="line">        a b c d e f g&amp; a b c d e f g&amp;a b c d e f g&amp;a b c d e f g\\ </span><br><span class="line">\hline                                                             </span><br><span class="line">\end&#123;tabular&#125;                                                      </span><br></pre></td></tr></table></figure>
+<h2 id="表格重设表序号"><a href="#表格重设表序号" class="headerlink" title="表格重设表序号"></a>表格重设表序号</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># \setcounter&#123;page&#125;&#123;3&#125;</span><br><span class="line">\setcounter&#123;table&#125;&#123;1&#125; # 下个表格序号加一</span><br></pre></td></tr></table></figure>
+<h1 id="有序列表和无序列表"><a href="#有序列表和无序列表" class="headerlink" title="有序列表和无序列表"></a>有序列表和无序列表</h1><p>有序列表使用方括号标号或自定义标号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;enumerate&#125;[label&#x3D;&#123;[\arabic*]&#125;]  %\setlength&#123;\itemsep&#125;&#123;0pt&#125;</span><br><span class="line">\item xxxxx   %[1] xxxxx</span><br><span class="line">\item yyyyyy  %[2] yyyyyy</span><br><span class="line">\item zzzzz   %[3] zzzzz</span><br><span class="line">\end&#123;enumerate&#125;</span><br></pre></td></tr></table></figure><br>其中，</p>
+<ul>
+<li>enumerate环境后面跟的参数label={[\arabic*]}即可使得列表以“方括号+阿拉伯数字”的形式编号；</li>
+<li>在\begin{enumerate}[label={[\arabic*]}]后面跟\setlength{\itemsep}{0pt}可以设置当前列表环境里item条目之间的间距。</li>
+<li>\arabic可以替换为\roman、\Roman、\Alph 或 \alph来表示小写罗马数字、大写罗马数字、大写字母编号 或 小写字母编号。</li>
+</ul>
+<h1 id="个人常用命令"><a href="#个人常用命令" class="headerlink" title="个人常用命令"></a>个人常用命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\newcommand&#123;\tabincell&#125;[2]&#123;\begin&#123;tabular&#125;&#123;@&#123;&#125;#1@&#123;&#125;&#125;#2\end&#123;tabular&#125;&#125;</span><br><span class="line"># 加红</span><br><span class="line">\newcommand&#123;\cx&#125;[1]&#123;\textcolor&#123;black&#125;&#123;#1&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/20140/can-a-table-include-a-horizontal-dashed-line">Can a table include a horizontal dashed line?</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/moonlightpeng/article/details/88138586">latex longtable and supertabular 跨页表格</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/haifeng_gu/article/details/109168733">Latex中设置enumerate有序列表使用方括号标号以及设置item间距</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/bleedingfight/article/details/80169003">LaTeX入门学习(5)(表格)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangliandehanyun/article/details/9471427">LaTex中表格固定列宽并且居中的方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9d73201b965b">LaTeX固定表格每一列宽度并指定对齐方式（居中）</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/5a3c8d60.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/5a3c8d60.html" class="post-title-link" itemprop="url">缺陷预测-软件度量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-13 18:12:24" itemprop="dateCreated datePublished" datetime="2021-03-13T18:12:24+08:00">2021-03-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-14 19:17:54" itemprop="dateModified" datetime="2021-03-14T19:17:54+08:00">2021-03-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%BA%E9%99%B7%E9%A2%84%E6%B5%8B/" itemprop="url" rel="index"><span itemprop="name">缺陷预测</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/5a3c8d60.html" class="post-meta-item leancloud_visitors" data-flag-title="缺陷预测-软件度量" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/5a3c8d60.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/5a3c8d60.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>参考部分百科<sup><a href="#fn_1" id="reffn_1">1</a></sup><sup><a href="#fn_2" id="reffn_2">2</a></sup>和英文文献<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/5a3c8d60.html" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/9060a5db.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/9060a5db.html" class="post-title-link" itemprop="url">ftx量化空间</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-12 20:36:39" itemprop="dateCreated datePublished" datetime="2021-03-12T20:36:39+08:00">2021-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-30 14:27:44" itemprop="dateModified" datetime="2021-03-30T14:27:44+08:00">2021-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%A4%E6%98%93/" itemprop="url" rel="index"><span itemprop="name">交易</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/9060a5db.html" class="post-meta-item leancloud_visitors" data-flag-title="ftx量化空间" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/9060a5db.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/9060a5db.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          有东西被加密了, 请输入密码查看.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/9060a5db.html" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/8c962b5c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/8c962b5c.html" class="post-title-link" itemprop="url">pytorch loss function 总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-12 16:03:05" itemprop="dateCreated datePublished" datetime="2021-03-12T16:03:05+08:00">2021-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-12 16:03:16" itemprop="dateModified" datetime="2021-07-12T16:03:16+08:00">2021-07-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/pytorch/" itemprop="url" rel="index"><span itemprop="name">pytorch</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/8c962b5c.html" class="post-meta-item leancloud_visitors" data-flag-title="pytorch loss function 总结" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/8c962b5c.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/8c962b5c.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>记录自己的学习过程，对深度学习目标函数自我总结。<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/8c962b5c.html" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/13c6676c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/13c6676c.html" class="post-title-link" itemprop="url">python数组扩充</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-10 16:59:02" itemprop="dateCreated datePublished" datetime="2021-03-10T16:59:02+08:00">2021-03-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-11 15:59:50" itemprop="dateModified" datetime="2021-03-11T15:59:50+08:00">2021-03-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/13c6676c.html" class="post-meta-item leancloud_visitors" data-flag-title="python数组扩充" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/13c6676c.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/13c6676c.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>772</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="数组扩充"><a href="#数组扩充" class="headerlink" title="数组扩充"></a>数组扩充</h1><p>用repeat和tile扩充数组元素，例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.tile(data,(<span class="number">2</span>,<span class="number">2</span>))</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</span><br><span class="line">       [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=np.array([[<span class="number">10</span>,<span class="number">20</span>],[<span class="number">30</span>,<span class="number">40</span>]])  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.repeat([<span class="number">3</span>,<span class="number">2</span>],axis=<span class="number">0</span>)</span><br><span class="line">array([[<span class="number">10</span>, <span class="number">20</span>],  </span><br><span class="line">       [<span class="number">10</span>, <span class="number">20</span>],  </span><br><span class="line">       [<span class="number">10</span>, <span class="number">20</span>],  </span><br><span class="line">       [<span class="number">30</span>, <span class="number">40</span>],  </span><br><span class="line">       [<span class="number">30</span>, <span class="number">40</span>]]) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.repeat([<span class="number">3</span>,<span class="number">2</span>],axis=<span class="number">1</span>) </span><br><span class="line">array([[<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">20</span>],</span><br><span class="line">       [<span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">40</span>]])</span><br></pre></td></tr></table></figure>
+<h1 id="torch数组扩充"><a href="#torch数组扩充" class="headerlink" title="torch数组扩充"></a>torch数组扩充</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">3</span>]])</span><br><span class="line">tensor([[<span class="number">1.</span>, <span class="number">2.</span>],</span><br><span class="line">        [<span class="number">2.</span>, <span class="number">3.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = data.repeat(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">tensor([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">1.</span>, <span class="number">2.</span>],</span><br><span class="line">        [<span class="number">2.</span>, <span class="number">3.</span>, <span class="number">2.</span>, <span class="number">3.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = a.view(-<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">tensor([[<span class="number">1.</span>, <span class="number">2.</span>],</span><br><span class="line">        [<span class="number">1.</span>, <span class="number">2.</span>],</span><br><span class="line">        [<span class="number">2.</span>, <span class="number">3.</span>],</span><br><span class="line">        [<span class="number">2.</span>, <span class="number">3.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = data.repeat(<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">tensor([[<span class="number">1.</span>, <span class="number">2.</span>],</span><br><span class="line">        [<span class="number">2.</span>, <span class="number">3.</span>],</span><br><span class="line">        [<span class="number">1.</span>, <span class="number">2.</span>],</span><br><span class="line">        [<span class="number">2.</span>, <span class="number">3.</span>]])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/f8cf55af.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/f8cf55af.html" class="post-title-link" itemprop="url">python相似度计算</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-10 11:12:27" itemprop="dateCreated datePublished" datetime="2021-03-10T11:12:27+08:00">2021-03-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-14 17:29:09" itemprop="dateModified" datetime="2021-03-14T17:29:09+08:00">2021-03-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/f8cf55af.html" class="post-meta-item leancloud_visitors" data-flag-title="python相似度计算" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/f8cf55af.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/f8cf55af.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/af7b2e2a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="cslzhl">
+      <meta itemprop="description" content="希望每天都能进步一点点">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cslzhl的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/af7b2e2a.html" class="post-title-link" itemprop="url">python标准化方法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-09 17:01:33" itemprop="dateCreated datePublished" datetime="2021-03-09T17:01:33+08:00">2021-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-26 11:26:26" itemprop="dateModified" datetime="2021-03-26T11:26:26+08:00">2021-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/archives/af7b2e2a.html" class="post-meta-item leancloud_visitors" data-flag-title="python标准化方法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/af7b2e2a.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/af7b2e2a.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="第一类Normalization"><a href="#第一类Normalization" class="headerlink" title="第一类Normalization"></a>第一类Normalization</h1><h2 id="零一标准化"><a href="#零一标准化" class="headerlink" title="零一标准化"></a>零一标准化</h2><p>对数组列或行进行零一标准化，区间范围为0，1<br>对行进行零一标准化<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> minmax_scale</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = [[-<span class="number">1</span>, <span class="number">2</span>], [-<span class="number">0.5</span>, <span class="number">6</span>], [<span class="number">0</span>, <span class="number">10</span>], [<span class="number">1</span>, <span class="number">18</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>processed_data = minmax_scale(data,axis=<span class="number">1</span>)</span><br><span class="line">array([[<span class="number">0.</span>, <span class="number">1.</span>],</span><br><span class="line">       [<span class="number">0.</span>, <span class="number">1.</span>],</span><br><span class="line">       [<span class="number">0.</span>, <span class="number">1.</span>],</span><br><span class="line">       [<span class="number">0.</span>, <span class="number">1.</span>]])</span><br></pre></td></tr></table></figure><br>MinMaxScaler调用了minmax_scale，对列进行零一标准化<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = [[-<span class="number">1</span>, <span class="number">2</span>], [-<span class="number">0.5</span>, <span class="number">6</span>], [<span class="number">0</span>, <span class="number">10</span>], [<span class="number">1</span>, <span class="number">18</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>scaler = MinMaxScaler()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>scaler.fit(data)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>processed_data = scaler.transform(data)</span><br><span class="line">array([[<span class="number">0.</span>  , <span class="number">0.</span>  ],</span><br><span class="line">       [<span class="number">0.25</span>, <span class="number">0.25</span>],</span><br><span class="line">       [<span class="number">0.5</span> , <span class="number">0.5</span> ],</span><br><span class="line">       [<span class="number">1.</span>  , <span class="number">1.</span>  ]])</span><br></pre></td></tr></table></figure></p>
+<h2 id="Z-score-normalization"><a href="#Z-score-normalization" class="headerlink" title="Z-score normalization"></a>Z-score normalization</h2><p>使用sklearn.preprocessing.scale()函数，可以直接将给定数据进行标准化。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>X = np.array([[ <span class="number">1.</span>, -<span class="number">1.</span>,  <span class="number">2.</span>],</span><br><span class="line"><span class="meta">... </span>              [ <span class="number">2.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</span><br><span class="line"><span class="meta">... </span>              [ <span class="number">0.</span>,  <span class="number">1.</span>, -<span class="number">1.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>X_scaled = preprocessing.scale(X)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>X_scaled                                          </span><br><span class="line">array([[ <span class="number">0.</span>  ..., -<span class="number">1.22</span>...,  <span class="number">1.33</span>...],</span><br><span class="line">       [ <span class="number">1.22</span>...,  <span class="number">0.</span>  ..., -<span class="number">0.26</span>...],</span><br><span class="line">       [-<span class="number">1.22</span>...,  <span class="number">1.22</span>..., -<span class="number">1.06</span>...]])</span><br><span class="line">&gt;&gt;&gt;<span class="comment">#处理后数据的均值和方差</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>X_scaled.mean(axis=<span class="number">0</span>)</span><br><span class="line">array([ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>X_scaled.std(axis=<span class="number">0</span>)</span><br><span class="line">array([ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>])</span><br></pre></td></tr></table></figure></p>
+<h1 id="第二类Normalization"><a href="#第二类Normalization" class="headerlink" title="第二类Normalization"></a>第二类Normalization</h1><p>第二种Normalization对于每个样本缩放到单位范数（每个样本的范数为1），主要有L1-normalization（L1范数）、L2-normalization（L2范数）等。<br>Normalization主要思想是对每个样本计算其p-范数，然后对该样本中每个元素除以该范数，这样处理的结果是使得每个处理后样本的p-范数（比如l1-norm,l2-norm）等于1。<br>p-范数的计算公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\|X\|_&#123;p&#125;&#x3D;\left(\left(\left|x_&#123;1&#125;\right|\right)^&#123;p&#125;+\left(\left|x_&#123;2&#125;\right|\right)^&#123;p&#125;+\ldots+\left(\left|x_&#123;n&#125;\right|\right)^&#123;p&#125;\right)^&#123;\frac&#123;1&#125;&#123;p&#125;&#125;</span><br></pre></td></tr></table></figure><br>该方法主要应用于文本分类和聚类中。例如，对于两个TF-IDF向量的l2-norm进行点积，就可以得到这两个向量的余弦相似性。</p>
+<ul>
+<li>可以使用preprocessing.normalize()函数对指定数据进行转换：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; X &#x3D; [[ 1., -1.,  2.],</span><br><span class="line">...      [ 2.,  0.,  0.],</span><br><span class="line">...      [ 0.,  1., -1.]]</span><br><span class="line">&gt;&gt;&gt; X_normalized &#x3D; preprocessing.normalize(X, norm&#x3D;&#39;l2&#39;)</span><br><span class="line">&gt;&gt;&gt; X_normalized                                      </span><br><span class="line">array([[ 0.40..., -0.40...,  0.81...],</span><br><span class="line">       [ 1.  ...,  0.  ...,  0.  ...],</span><br><span class="line">       [ 0.  ...,  0.70..., -0.70...]])</span><br><span class="line">&gt;&gt;&gt; X_normalized &#x3D; preprocessing.normalize(X, norm&#x3D;&#39;l1&#39;)</span><br><span class="line">array([[ 0.25, -0.25,  0.5 ],</span><br><span class="line">       [ 1.  ,  0.  ,  0.  ],</span><br><span class="line">       [ 0.  ,  0.5 , -0.5 ]])</span><br></pre></td></tr></table></figure>
+<h2 id="一行或一列累加标准化"><a href="#一行或一列累加标准化" class="headerlink" title="一行或一列累加标准化"></a>一行或一列累加标准化</h2></li>
+<li>使用preprocessing.normalize(X, norm=’l1’)<ul>
+<li>可以避免全零行的影响</li>
+<li>可以使用稀疏矩阵，必须CSR format </li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011092188/article/details/78174804">Normalization(标准化)的原理和实现详解</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -315,1037 +1373,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/175f7e9.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="cslzhl">
-      <meta itemprop="description" content="希望每天都能进步一点点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cslzhl的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/175f7e9.html" class="post-title-link" itemprop="url">cs-cloud GPU服务器环境配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-06 20:33:09" itemprop="dateCreated datePublished" datetime="2021-03-06T20:33:09+08:00">2021-03-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 18:19:46" itemprop="dateModified" datetime="2021-03-10T18:19:46+08:00">2021-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/archives/175f7e9.html" class="post-meta-item leancloud_visitors" data-flag-title="cs-cloud GPU服务器环境配置" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/archives/175f7e9.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/175f7e9.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="配置Docker源"><a href="#配置Docker源" class="headerlink" title="配置Docker源"></a>配置Docker源</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 更新源</span><br><span class="line">$ sudo apt update</span><br><span class="line"></span><br><span class="line"># 启用HTTPS</span><br><span class="line">$ sudo apt install -y \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br><span class="line"></span><br><span class="line"># 添加GPG key</span><br><span class="line">$ curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu&#x2F;gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"># 添加稳定版的源</span><br><span class="line">$ sudo add-apt-repository \</span><br><span class="line">   &quot;deb [arch&#x3D;amd64] https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br></pre></td></tr></table></figure>
-<h1 id="安装Docker-CE"><a href="#安装Docker-CE" class="headerlink" title="安装Docker CE"></a>安装Docker CE</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 更新源</span><br><span class="line">$ sudo apt update</span><br><span class="line"></span><br><span class="line"># 安装Docker CE</span><br><span class="line">$ sudo apt install -y docker-ce</span><br></pre></td></tr></table></figure>
-<h1 id="验证Docker-CE"><a href="#验证Docker-CE" class="headerlink" title="验证Docker CE"></a>验证Docker CE</h1><p>如果出现下面的内容，说明安装成功。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run hello-world</span><br><span class="line"></span><br><span class="line">Unable to find image &#39;hello-world:latest&#39; locally</span><br><span class="line">latest: Pulling from library&#x2F;hello-world</span><br><span class="line">1b930d010525: Pull complete </span><br><span class="line">Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https:&#x2F;&#x2F;hub.docker.com&#x2F;</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https:&#x2F;&#x2F;docs.docker.com&#x2F;get-started&#x2F;</span><br></pre></td></tr></table></figure></p>
-<h1 id="配置nvidia-docker源"><a href="#配置nvidia-docker源" class="headerlink" title="配置nvidia-docker源"></a>配置nvidia-docker源</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 添加源</span><br><span class="line">$ distribution&#x3D;$(. &#x2F;etc&#x2F;os-release;echo $ID$VERSION_ID)</span><br><span class="line">$ curl -s -L https:&#x2F;&#x2F;nvidia.github.io&#x2F;nvidia-docker&#x2F;gpgkey | sudo apt-key add -</span><br><span class="line">$ curl -s -L https:&#x2F;&#x2F;nvidia.github.io&#x2F;nvidia-docker&#x2F;$distribution&#x2F;nvidia-docker.list | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;nvidia-docker.list</span><br><span class="line"></span><br><span class="line"># 安装并重启docker</span><br><span class="line">$ sudo apt update &amp;&amp; sudo apt install -y nvidia-container-toolkit</span><br><span class="line">$ sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 在官方CUDA镜像上测试 nvidia-smi</span><br><span class="line">$ sudo docker run --gpus all nvidia&#x2F;cuda:9.0-base nvidia-smi</span><br><span class="line"></span><br><span class="line"># 启动支持双GPU的容器</span><br><span class="line">$ sudo docker run --gpus 2 nvidia&#x2F;cuda:9.0-base nvidia-smi</span><br><span class="line"></span><br><span class="line"># 指定GPU 1，运行容器</span><br><span class="line">$ sudo docker run --gpus device&#x3D;0 nvidia&#x2F;cuda:9.0-base nvidia-smi</span><br></pre></td></tr></table></figure>
-<p>能看到显卡信息就说明OK了，当前image是基于Ubuntu 16.04的。</p>
-<h1 id="docker-默认存储目录更改"><a href="#docker-默认存储目录更改" class="headerlink" title="docker 默认存储目录更改"></a>docker 默认存储目录更改</h1><p>查看Docker默认存储目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看docker基本信息</span><br><span class="line">$ docker info</span><br><span class="line">...</span><br><span class="line">Docker Root Dir: &#x2F;var&#x2F;lib&#x2F;docker</span><br><span class="line">Debug Mode: false</span><br><span class="line">Registry: https:&#x2F;&#x2F;index.docker.io&#x2F;v1&#x2F;</span><br><span class="line">Labels:</span><br><span class="line">Experimental: false</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl stop docker</span><br><span class="line">$ sudo vim &#x2F;etc&#x2F;docker&#x2F;daemon.json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;http:&#x2F;&#x2F;hub-mirror.c.163.com&quot;],</span><br><span class="line">  &quot;data-root&quot;: &quot;&#x2F;mnt&#x2F;data&quot; &#x2F;&#x2F;添加存储路径</span><br><span class="line">&#125;</span><br><span class="line">$ sudo systemctl start docker</span><br></pre></td></tr></table></figure></p>
-<h1 id="删除镜像和容器"><a href="#删除镜像和容器" class="headerlink" title="删除镜像和容器"></a>删除镜像和容器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo docker images # 查看所有镜像</span><br><span class="line">sudo docker ps -a # 显示所有容器</span><br><span class="line">sudo docker rm 容器id # 删除容器</span><br><span class="line">sudo docker rmi 镜像id # 删除镜像</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/journeyonmyway/p/11234572.html">Ubuntu 18.04安装Docker CE及NVIDIA Container Toolkit流程</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/a6fdd32d.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="cslzhl">
-      <meta itemprop="description" content="希望每天都能进步一点点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cslzhl的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/a6fdd32d.html" class="post-title-link" itemprop="url">hexo主题美化及常用插件使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-06 11:09:43" itemprop="dateCreated datePublished" datetime="2021-03-06T11:09:43+08:00">2021-03-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-18 23:31:33" itemprop="dateModified" datetime="2021-03-18T23:31:33+08:00">2021-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">建站教程</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/archives/a6fdd32d.html" class="post-meta-item leancloud_visitors" data-flag-title="hexo主题美化及常用插件使用" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/archives/a6fdd32d.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/a6fdd32d.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>前言：本博客搭建时使用的nodejs版本为12.20.1，hexo版本为5.3.0，next版本为7.4.0，初次搭建推荐做一些文件改动时就测试一下(我到最后才发现hexo d居然出问题，艹)<br>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/a6fdd32d.html" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/d831d399.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="cslzhl">
-      <meta itemprop="description" content="希望每天都能进步一点点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cslzhl的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/d831d399.html" class="post-title-link" itemprop="url">统计检验</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-06 01:23:50 / 修改时间：11:13:20" itemprop="dateCreated datePublished" datetime="2021-03-06T01:23:50+08:00">2021-03-06</time>
-            </span>
-
-          
-            <span id="/archives/d831d399.html" class="post-meta-item leancloud_visitors" data-flag-title="统计检验" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/archives/d831d399.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/d831d399.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>16</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><h2 id="Wilcoxon-秩和检验"><a href="#Wilcoxon-秩和检验" class="headerlink" title="Wilcoxon 秩和检验"></a>Wilcoxon 秩和检验</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/bf7d175a.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="cslzhl">
-      <meta itemprop="description" content="希望每天都能进步一点点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cslzhl的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/bf7d175a.html" class="post-title-link" itemprop="url">【天赋树】一个期权交易员的自我修养 - 转载</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-27 13:54:36 / 修改时间：14:26:01" itemprop="dateCreated datePublished" datetime="2021-02-27T13:54:36+08:00">2021-02-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%A4%E6%98%93/" itemprop="url" rel="index"><span itemprop="name">交易</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%A4%E6%98%93/%E6%9C%9F%E6%9D%83/" itemprop="url" rel="index"><span itemprop="name">期权</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/archives/bf7d175a.html" class="post-meta-item leancloud_visitors" data-flag-title="【天赋树】一个期权交易员的自我修养 - 转载" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/archives/bf7d175a.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/bf7d175a.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>16k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>14 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          有东西被加密了, 请输入密码查看.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/bf7d175a.html" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/351b7a85.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="cslzhl">
-      <meta itemprop="description" content="希望每天都能进步一点点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cslzhl的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/351b7a85.html" class="post-title-link" itemprop="url">永续合约套利 - 转载</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-27 13:33:08 / 修改时间：14:28:06" itemprop="dateCreated datePublished" datetime="2021-02-27T13:33:08+08:00">2021-02-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%A4%E6%98%93/" itemprop="url" rel="index"><span itemprop="name">交易</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/archives/351b7a85.html" class="post-meta-item leancloud_visitors" data-flag-title="永续合约套利 - 转载" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/archives/351b7a85.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/351b7a85.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          有东西被加密了, 请输入密码查看.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/351b7a85.html" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/6a15ee01.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="cslzhl">
-      <meta itemprop="description" content="希望每天都能进步一点点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cslzhl的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/6a15ee01.html" class="post-title-link" itemprop="url">ubuntu终端配置代理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-22 17:00:25" itemprop="dateCreated datePublished" datetime="2021-02-22T17:00:25+08:00">2021-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-14 14:07:32" itemprop="dateModified" datetime="2021-04-14T14:07:32+08:00">2021-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/archives/6a15ee01.html" class="post-meta-item leancloud_visitors" data-flag-title="ubuntu终端配置代理" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/archives/6a15ee01.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/6a15ee01.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="终端代理配置"><a href="#终端代理配置" class="headerlink" title="终端代理配置"></a>终端代理配置</h1><h2 id="临时"><a href="#临时" class="headerlink" title="临时"></a>临时</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export https_proxy&#x3D;https:&#x2F;&#x2F;用户名:密码@代理地址:代理端口</span><br><span class="line">export http_proxy&#x3D;http:&#x2F;&#x2F;用户名:密码@代理地址:代理端口</span><br></pre></td></tr></table></figure>
-<h2 id="永久"><a href="#永久" class="headerlink" title="永久"></a>永久</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># gedit ~&#x2F;.bashrc 在.bashrc文件末尾添加如下内容，或者在&#x2F;etc&#x2F;environment中</span><br><span class="line">export http_proxy&#x3D;http:&#x2F;&#x2F;用户名:密码@地址:端口&#x2F;</span><br><span class="line">export https_proxy&#x3D;http:&#x2F;&#x2F;用户名:密码@地址:端口&#x2F;</span><br><span class="line">export ftp_proxy&#x3D;http:&#x2F;&#x2F;用户名:密码@地址:端口&#x2F;</span><br><span class="line"># sudo gedit &#x2F;etc&#x2F;apt&#x2F;apt.conf 在apt.conf文件中加入下面这行</span><br><span class="line">Acquire::http::proxy &quot;http:&#x2F;&#x2F;用户名:密码@地址:端口&quot;;</span><br><span class="line">Acquire::ftp::proxy &quot;http:&#x2F;&#x2F;用户名:密码@地址:端口&quot;;</span><br><span class="line">Acquire::https::proxy &quot;http:&#x2F;&#x2F;用户名:密码@地址:端口&quot;;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/6a15ee01.html" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/923d283b.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="cslzhl">
-      <meta itemprop="description" content="希望每天都能进步一点点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cslzhl的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/923d283b.html" class="post-title-link" itemprop="url">ubuntu系统深度学习环境搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-18 23:13:34" itemprop="dateCreated datePublished" datetime="2021-02-18T23:13:34+08:00">2021-02-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-23 15:07:50" itemprop="dateModified" datetime="2021-04-23T15:07:50+08:00">2021-04-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/archives/923d283b.html" class="post-meta-item leancloud_visitors" data-flag-title="ubuntu系统深度学习环境搭建" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/archives/923d283b.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/923d283b.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>首先，查看ubuntu版本可以用下面的指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;proc&#x2F;version</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/923d283b.html" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/ee2c00b4.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="cslzhl">
-      <meta itemprop="description" content="希望每天都能进步一点点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cslzhl的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/ee2c00b4.html" class="post-title-link" itemprop="url">ubuntu perl运行踩坑汇总</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-17 14:07:44" itemprop="dateCreated datePublished" datetime="2021-02-17T14:07:44+08:00">2021-02-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-19 15:04:52" itemprop="dateModified" datetime="2021-02-19T15:04:52+08:00">2021-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Perl/" itemprop="url" rel="index"><span itemprop="name">Perl</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Perl/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/archives/ee2c00b4.html" class="post-meta-item leancloud_visitors" data-flag-title="ubuntu perl运行踩坑汇总" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/archives/ee2c00b4.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/ee2c00b4.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>120</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这些是我在运行一个pl脚本时遇到的一些错误，通过安装缺失的包解决了。</p>
-<ol>
-<li>Can’t locate DBI.pm in @INC (you may need to install the DBI module)</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libdbi-perl</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/ee2c00b4.html" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslzhl.github.io/archives/828b22fd.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="cslzhl">
-      <meta itemprop="description" content="希望每天都能进步一点点">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cslzhl的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/828b22fd.html" class="post-title-link" itemprop="url">ubuntu安装mysql和简单操作</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-16 22:48:33" itemprop="dateCreated datePublished" datetime="2021-02-16T22:48:33+08:00">2021-02-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-17 17:23:53" itemprop="dateModified" datetime="2021-02-17T17:23:53+08:00">2021-02-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sql/" itemprop="url" rel="index"><span itemprop="name">sql</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/archives/828b22fd.html" class="post-meta-item leancloud_visitors" data-flag-title="ubuntu安装mysql和简单操作" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/archives/828b22fd.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/828b22fd.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>559</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server          &#x2F;&#x2F;服务端</span><br><span class="line">sudo apt-get install mysql-client          &#x2F;&#x2F;客户端</span><br><span class="line">sudo apt-get install libmysqlclient-dev  &#x2F;&#x2F;程序编译时链接的库</span><br><span class="line">sudo apt-get install mysql-workbench  &#x2F;&#x2F;可视化工具</span><br></pre></td></tr></table></figure>
-<p>安装过程中会提示设置密码什么的，注意设置了不要忘了，安装完成之后可以使用如下命令来检查是否安装成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tap | grep mysql</span><br></pre></td></tr></table></figure><br>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/828b22fd.html" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1413,7 +1444,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1426,7 +1457,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1477,12 +1508,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">82k</span>
+    <span title="站点总字数">88k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:14</span>
+    <span title="站点阅读时长">1:20</span>
 </div>
 
         
@@ -1559,6 +1590,9 @@
   
 
   
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
 
   
 
