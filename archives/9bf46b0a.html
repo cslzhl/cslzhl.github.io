@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"cslzhl.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="自定义数据集123456789101112131415161718192021222324import osimport pandas as pdfrom torchvision.io import read_imagefrom torch.utils.data import Datasetclass CustomImageDataset(Dataset):    def __init__(se">
+  <meta name="description" content="TensorDataset12345678910111213141516171819from torch.utils.data import TensorDatasetimport torchfrom torch.utils.data import DataLoadera &#x3D; torch.tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 2, 3], [4">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch datasets and dataloaders">
 <meta property="og:url" content="https://cslzhl.github.io/archives/9bf46b0a.html">
 <meta property="og:site_name" content="cslzhl的博客">
-<meta property="og:description" content="自定义数据集123456789101112131415161718192021222324import osimport pandas as pdfrom torchvision.io import read_imagefrom torch.utils.data import Datasetclass CustomImageDataset(Dataset):    def __init__(se">
+<meta property="og:description" content="TensorDataset12345678910111213141516171819from torch.utils.data import TensorDatasetimport torchfrom torch.utils.data import DataLoadera &#x3D; torch.tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 2, 3], [4">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-17T15:18:14.000Z">
-<meta property="article:modified_time" content="2022-01-17T15:28:09.186Z">
+<meta property="article:modified_time" content="2022-02-28T07:43:00.698Z">
 <meta property="article:author" content="cslzhl">
 <meta name="twitter:card" content="summary">
 
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">67</span></a>
 
   </li>
         <li class="menu-item menu-item-movies">
@@ -228,10 +228,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-01-17 23:18:14 / 修改时间：23:28:09" itemprop="dateCreated datePublished" datetime="2022-01-17T23:18:14+08:00">2022-01-17</time>
+              <time title="创建时间：2022-01-17 23:18:14" itemprop="dateCreated datePublished" datetime="2022-01-17T23:18:14+08:00">2022-01-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-28 15:43:00" itemprop="dateModified" datetime="2022-02-28T15:43:00+08:00">2022-02-28</time>
+              </span>
 
           
             <span id="/archives/9bf46b0a.html" class="post-meta-item leancloud_visitors" data-flag-title="pytorch datasets and dataloaders" title="阅读次数">
@@ -267,14 +273,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>862</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -287,8 +293,19 @@
 
       
         <a id="more"></a>
+<h1 id="TensorDataset"><a href="#TensorDataset" class="headerlink" title="TensorDataset"></a>TensorDataset</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> TensorDataset</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br><span class="line">a = torch.tensor([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line">b = torch.tensor([<span class="number">44</span>, <span class="number">55</span>, <span class="number">66</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">66</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">66</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">66</span>])</span><br><span class="line">train_ids = TensorDataset(a, b) </span><br><span class="line"><span class="comment"># 切片输出</span></span><br><span class="line">print(train_ids[<span class="number">0</span>:<span class="number">2</span>])</span><br><span class="line">print(<span class="string">&#x27;=&#x27;</span> * <span class="number">80</span>)</span><br><span class="line"><span class="comment"># 循环取数据</span></span><br><span class="line"><span class="keyword">for</span> x_train, y_label <span class="keyword">in</span> train_ids:</span><br><span class="line">    print(x_train, y_label)</span><br><span class="line"><span class="comment"># DataLoader进行数据封装</span></span><br><span class="line">print(<span class="string">&#x27;=&#x27;</span> * <span class="number">80</span>)</span><br><span class="line">train_loader = DataLoader(dataset=train_ids, batch_size=<span class="number">4</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> i, data <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_loader, <span class="number">1</span>):  <span class="comment"># 注意enumerate返回值有两个,一个是序号，一个是数据（包含训练数据和标签）</span></span><br><span class="line">    x_data, label = data</span><br><span class="line">    print(<span class="string">&#x27; batch:&#123;0&#125; x_data:&#123;1&#125;  label: &#123;2&#125;&#x27;</span>.<span class="built_in">format</span>(i, x_data, label))</span><br></pre></td></tr></table></figure>
 <h1 id="自定义数据集"><a href="#自定义数据集" class="headerlink" title="自定义数据集"></a>自定义数据集</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> torchvision.io <span class="keyword">import</span> read_image</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomImageDataset</span>(<span class="params">Dataset</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, annotations_file, img_dir, transform=<span class="literal">None</span>, target_transform=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.img_labels = pd.read_csv(annotations_file)</span><br><span class="line">        self.img_dir = img_dir</span><br><span class="line">        self.transform = transform</span><br><span class="line">        self.target_transform = target_transform</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.img_labels)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span>(<span class="params">self, idx</span>):</span></span><br><span class="line">        img_path = os.path.join(self.img_dir, self.img_labels.iloc[idx, <span class="number">0</span>])</span><br><span class="line">        image = read_image(img_path)</span><br><span class="line">        label = self.img_labels.iloc[idx, <span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> self.transform:</span><br><span class="line">            image = self.transform(image)</span><br><span class="line">        <span class="keyword">if</span> self.target_transform:</span><br><span class="line">            label = self.target_transform(label)</span><br><span class="line">        <span class="keyword">return</span> image, label</span><br></pre></td></tr></table></figure>
-<h1 id="数据加载"><a href="#数据加载" class="headerlink" title="数据加载"></a>数据加载</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br><span class="line">train_dataloader = DataLoader(training_data, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">test_dataloader = DataLoader(test_data, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="数据加载"><a href="#数据加载" class="headerlink" title="数据加载"></a>数据加载</h1><blockquote>
+<p>参数解析<br>shuffle (bool, optional) – set to True to have the data reshuffled at every epoch (default: False).<br>sampler (Sampler or Iterable, optional) - If specified, shuffle must not be specified.<br>collate_fn </p>
+<p>collate_fn等价于<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> indices <span class="keyword">in</span> batch_sampler:</span><br><span class="line">    <span class="keyword">yield</span> collate_fn([dataset[i] <span class="keyword">for</span> i <span class="keyword">in</span> indices])</span><br><span class="line"><span class="comment"># 使用示例</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">collate_fn</span>(<span class="params">self,batch</span>):</span></span><br><span class="line">    <span class="comment">#  batch是一个列表，其中是一个一个的元组，每个元组是dataset中_getitem__的结果</span></span><br><span class="line">    bugs = [i[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> batch]</span><br><span class="line">    codes = [i[<span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> batch]</span><br><span class="line">    labels = [i[<span class="number">2</span>] <span class="keyword">for</span> i <span class="keyword">in</span> batch]</span><br><span class="line">    bs = [i[<span class="number">3</span>] <span class="keyword">for</span> i <span class="keyword">in</span> batch]</span><br><span class="line">    labels = torch.FloatTensor(labels)</span><br><span class="line">    reportlen = [<span class="built_in">len</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> bugs]</span><br><span class="line">    buglen = <span class="built_in">max</span>(<span class="built_in">max</span>(reportlen), <span class="built_in">max</span>(self.modelconf.filters))</span><br><span class="line">    senlen = [<span class="built_in">len</span>(j) <span class="keyword">for</span> i <span class="keyword">in</span> codes <span class="keyword">for</span> j <span class="keyword">in</span> i]</span><br><span class="line">    codelen = <span class="built_in">max</span>(<span class="built_in">max</span>(senlen), <span class="built_in">max</span>(self.modelconf.filters))</span><br><span class="line">    doclen = <span class="built_in">max</span>(bs)</span><br><span class="line">    bugarray = np.zeros((<span class="built_in">len</span>(reportlen), buglen))</span><br><span class="line">    <span class="keyword">for</span> i, v <span class="keyword">in</span> <span class="built_in">enumerate</span>(bugs):</span><br><span class="line">        <span class="keyword">for</span> j, k <span class="keyword">in</span> <span class="built_in">enumerate</span>(v):</span><br><span class="line">            bugarray[i, j] = k</span><br><span class="line">    codearray = np.zeros((<span class="built_in">len</span>(codes),doclen, codelen))</span><br><span class="line">    <span class="keyword">for</span> i,lines <span class="keyword">in</span> <span class="built_in">enumerate</span>(codes):</span><br><span class="line">        <span class="keyword">for</span> j,line <span class="keyword">in</span> <span class="built_in">enumerate</span>(lines):</span><br><span class="line">            <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">enumerate</span>(line):</span><br><span class="line">                codearray[i,j,k] = v</span><br><span class="line">    <span class="keyword">return</span> torch.from_numpy(bugarray).long(),torch.from_numpy(codearray).long(),labels</span><br></pre></td></tr></table></figure><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br><span class="line">train_dataloader = DataLoader(training_data, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">test_dataloader = DataLoader(test_data, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></p>
+<h1 id="取样器"><a href="#取样器" class="headerlink" title="取样器"></a>取样器</h1><p>SequentialSampler，RandomSampler，WeightedRandomSampler</p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader">https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40211493/article/details/107529148">PyTorch 小功能之 TensorDataset</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/268723970">数据预处理：Dataset，DataLoader（使用篇）</a></li>
+</ol>
+
     </div>
 
     
@@ -334,7 +351,10 @@
     <a href="/archives/b523cb07.html" rel="prev" title="pytorch多GPU训练">
       <i class="fa fa-chevron-left"></i> pytorch多GPU训练
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/archives/c425bfa2.html" rel="next" title="pandas按行迭代">
+      pandas按行迭代 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -394,7 +414,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">自定义数据集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">数据加载</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TensorDataset"><span class="nav-number">1.</span> <span class="nav-text">TensorDataset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">自定义数据集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">数据加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%96%E6%A0%B7%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">取样器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -410,7 +430,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -474,12 +494,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">96k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:28</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
 
         

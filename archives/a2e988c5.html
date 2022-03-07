@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"cslzhl.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="移除代码注释">
+  <meta name="description" content="移除代码注释，可用库pyparsing、pygments和javalang">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python移除代码注释">
 <meta property="og:url" content="https://cslzhl.github.io/archives/a2e988c5.html">
 <meta property="og:site_name" content="cslzhl的博客">
-<meta property="og:description" content="移除代码注释">
+<meta property="og:description" content="移除代码注释，可用库pyparsing、pygments和javalang">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-10T03:15:54.000Z">
-<meta property="article:modified_time" content="2022-01-14T06:20:19.530Z">
+<meta property="article:modified_time" content="2022-03-07T06:46:37.141Z">
 <meta property="article:author" content="cslzhl">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">67</span></a>
 
   </li>
         <li class="menu-item menu-item-movies">
@@ -237,7 +237,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-14 14:20:19" itemprop="dateModified" datetime="2022-01-14T14:20:19+08:00">2022-01-14</time>
+                <time title="修改时间：2022-03-07 14:46:37" itemprop="dateModified" datetime="2022-03-07T14:46:37+08:00">2022-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,7 +283,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>548</span>
+              <span>862</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -302,10 +302,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>移除代码注释<br><a id="more"></a></p>
-<h1 id="使用pyparsing库"><a href="#使用pyparsing库" class="headerlink" title="使用pyparsing库"></a>使用pyparsing库</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyparsing</span><br><span class="line"></span><br><span class="line">test = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">/* Code my code</span></span><br><span class="line"><span class="string">xx to remove comments in C++</span></span><br><span class="line"><span class="string">or C or python */</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">include &lt;iostream&gt; // Some comment</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">int main ()&#123;</span></span><br><span class="line"><span class="string">    cout &lt;&lt; &quot;hello world&quot; &lt;&lt; std::endl; // comment</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">commentFilter = pyparsing.cppStyleComment.suppress()</span><br><span class="line"><span class="comment"># Can also use pythonStyleComment, javaStyleComment, cppStyleComment. Found it pretty useful.</span></span><br><span class="line">newtest = commentFilter.transformString(test)</span><br><span class="line">print(newest)</span><br></pre></td></tr></table></figure>
+        <p>移除代码注释，可用库pyparsing、pygments和javalang<br><a id="more"></a></p>
+<h1 id="使用pyparsing库"><a href="#使用pyparsing库" class="headerlink" title="使用pyparsing库"></a>使用pyparsing库</h1><p>可匹配各类token<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyparsing</span><br><span class="line"></span><br><span class="line">test = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">/* Code my code</span></span><br><span class="line"><span class="string">xx to remove comments in C++</span></span><br><span class="line"><span class="string">or C or python */</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">include &lt;iostream&gt; // Some comment</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">int main ()&#123;</span></span><br><span class="line"><span class="string">    cout &lt;&lt; &quot;hello world&quot; &lt;&lt; std::endl; // comment</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">commentFilter = pyparsing.cppStyleComment.suppress()</span><br><span class="line"><span class="comment"># Can also use pythonStyleComment, javaStyleComment, cppStyleComment. Found it pretty useful.</span></span><br><span class="line">newtest = commentFilter.transformString(test)</span><br><span class="line">print(newtest)</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用pygments"><a href="#使用pygments" class="headerlink" title="使用pygments"></a>使用pygments</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java_lexer = JavaLexer()</span><br><span class="line">lexed_src = pygments.lex(content, java_lexer)</span><br><span class="line"><span class="keyword">for</span> i, token <span class="keyword">in</span> <span class="built_in">enumerate</span>(lexed_src):</span><br><span class="line">    <span class="keyword">if</span> token[<span class="number">0</span>] <span class="keyword">in</span> Token.Comment:</span><br><span class="line">        content = content.replace(token[<span class="number">1</span>], <span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2319019/using-regex-to-remove-comments-from-source-files">https://stackoverflow.com/questions/2319019/using-regex-to-remove-comments-from-source-files</a></li>
+<li><a target="_blank" rel="noopener" href="https://pyparsing-docs.readthedocs.io/en/latest/HowToUsePyparsing.html#steps-to-follow">https://pyparsing-docs.readthedocs.io/en/latest/HowToUsePyparsing.html#steps-to-follow</a></li>
 </ol>
 
     </div>
@@ -428,7 +430,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8pyparsing%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">使用pyparsing库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8pyparsing%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">使用pyparsing库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8pygments"><span class="nav-number">2.</span> <span class="nav-text">使用pygments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -444,7 +446,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -508,12 +510,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">96k</span>
+    <span title="站点总字数">100k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:28</span>
+    <span title="站点阅读时长">1:31</span>
 </div>
 
         
